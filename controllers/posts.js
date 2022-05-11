@@ -53,8 +53,17 @@ const updatePost = async (req, res, next) => {
   }
 };
 
-const deletePost = (req, res, next) => {
-  res.json("delete posts");
+const deletePost = async (req, res, next) => {
+  try {
+    const {
+      params: { id },
+    } = req;
+
+    const deletedPost = await postsModel.findByIdAndDelete(id);
+    res.json(deletedPost);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 };
 
 module.exports = {
