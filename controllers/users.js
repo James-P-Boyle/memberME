@@ -2,8 +2,31 @@ const usersModel = require("../models/users");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const login = (req, res, next) => {
-  res.send("LOGIN");
+const login = async (req, res, next) => {
+  try {
+    const {
+      body: { email, password },
+    } = req;
+    //check email to find user                      //select is false for password in schema
+    const found = await usersModel.findOne({ email }).select("+password");
+    if (!found) throw new Error("Invalid Details (email)");
+
+    //check password
+    const match = await bcrypt.compare(password, found.password); //returns boolean
+    if (!match) throw new Error("Invalid Details (password)");
+
+    //if both match, sign new token
+    const token = jwt.sign(
+      { id: found._id, email: found.email },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "120s",
+      }
+    );
+    res.json(token);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 };
 
 const signup = async (req, res, next) => {
