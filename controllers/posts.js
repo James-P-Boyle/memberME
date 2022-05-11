@@ -22,8 +22,21 @@ const getPost = async (req, res, next) => {
   }
 };
 
-const createPost = (req, res, next) => {
-  res.json("create posts");
+const createPost = async (req, res, next) => {
+  try {
+    const {
+      body: { caption, img },
+    } = req;
+    console.log(req.body);
+    const newPost = await postsModel.create({
+      caption,
+      img,
+    });
+    console.log(newPost);
+    res.json(newPost);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 };
 
 const updatePost = (req, res, next) => {
