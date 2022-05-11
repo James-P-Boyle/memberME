@@ -1,5 +1,6 @@
 const usersModel = require("../models/users");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const login = (req, res, next) => {
   res.send("LOGIN");
@@ -19,7 +20,18 @@ const signup = async (req, res, next) => {
 
     //Create New User if user doesnt exist
     const user = await usersModel.create({ email, password: hash });
-    res.json(user);
+
+    //Create JWT token
+    //Sign Token
+    const token = jwt.sign(
+      //Payload
+      { id: user._id, email },
+      //Secret
+      process.env.JWT_SECRET,
+      //options(how long valid)
+      { expiresIn: "120s" }
+    );
+    res.json(token);
   } catch (err) {
     res.status(500).send(err.message);
   }
