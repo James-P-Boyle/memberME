@@ -1,9 +1,25 @@
+const postsModel = require("../models/posts");
+
 const getPosts = async (req, res, next) => {
-  res.json("get posts");
+  try {
+    const posts = await postsModel.find({});
+    res.json(posts);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 };
 
 const getPost = async (req, res, next) => {
-  res.json("get post");
+  try {
+    const {
+      params: { id },
+    } = req;
+
+    const post = await postsModel.findById(id);
+    res.json(post);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 };
 
 const createPost = (req, res, next) => {
