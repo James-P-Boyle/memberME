@@ -39,8 +39,18 @@ const createPost = async (req, res, next) => {
   }
 };
 
-const updatePost = (req, res, next) => {
-  res.json("update posts");
+const updatePost = async (req, res, next) => {
+  try {
+    const {
+      params: { id },
+    } = req;
+    const { body } = req;
+
+    const updatedPost = await postsModel.findByIdAndUpdate(id, body);
+    res.json(updatedPost);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 };
 
 const deletePost = (req, res, next) => {
