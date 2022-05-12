@@ -6,6 +6,6 @@ const commentsSchema = new Schema({
   createdAt: { type: Date, default: Date.now() },
 });
 
-const commentsModel = model("User", commentsSchema);
+const commentsModel = model("Comment", commentsSchema);
 
 module.exports = commentsModel;
