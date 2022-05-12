@@ -10,7 +10,9 @@ const {
 
 const postsRouter = express.Router();
 
-postsRouter.route("/").get(verifyToken, getPosts).post(createPost);
+postsRouter.use(verifyToken);
+
+postsRouter.route("/").get(getPosts).post(createPost);
 postsRouter.route("/:id").get(getPost).put(updatePost).delete(deletePost);
 
 module.exports = postsRouter;
