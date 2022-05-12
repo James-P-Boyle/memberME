@@ -20,7 +20,7 @@ const login = async (req, res, next) => {
       { id: found._id, email: found.email },
       process.env.JWT_SECRET,
       {
-        expiresIn: "120s",
+        expiresIn: "500m",
       }
     );
     res.json(token);
@@ -52,7 +52,7 @@ const signup = async (req, res, next) => {
       //Secret
       process.env.JWT_SECRET,
       //options(how long valid)
-      { expiresIn: "120s" }
+      { expiresIn: "500m" }
     );
     res.json(token);
   } catch (err) {
