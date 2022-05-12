@@ -1,4 +1,5 @@
 const postsModel = require("../models/posts");
+const { cloudinary } = require("../utils/cloudinary");
 
 const getPosts = async (req, res, next) => {
   try {
