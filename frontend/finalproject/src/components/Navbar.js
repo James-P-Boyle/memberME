@@ -1,3 +1,3 @@
 export default function Navbar() {
-  return <div>Navbar!</div>;
+  return <div className="bg-yellow-500">Navbar!</div>;
 }
