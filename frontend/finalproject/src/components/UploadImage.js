@@ -4,10 +4,10 @@ export default function UploadImage() {
   const [fileInputState, setFileInputState] = useState("");
   const [captionState, setCaptionState] = useState("");
   const [previewSource, setPreviewSource] = useState("");
-  const [selectedFile, setSelectedFile] = useState("");
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
+
     previewFile(file);
   };
   const handleInputChange = (e) => {
