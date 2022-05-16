@@ -50,33 +50,45 @@ export default function UploadImage() {
   };
 
   return (
-    <div className="border-8 max-w-md mx-auto">
-      <h1>Upload your image</h1>
-      <form className="grid" onSubmit={handleSubmitFile}>
-        <input
-          type="text"
-          name="caption"
-          className=""
-          placeholder="enter caption"
-          onChange={handleInputChange}
-          value={captionState}
-        />
-        <input
-          onChange={handleFileInputChange}
-          value={fileInputState}
-          type="file"
-          name="img"
-          className=""
-        />
-        <button
-          type="submit"
-          className="px-10 py-5 bg-slate-300 hover:bg-slate-200"
-        >
-          Submit
-        </button>
-      </form>
-      <div className="">
-        {previewSource && <img src={previewSource} className="w-full" alt="" />}
+    <div className="mt-3 border-8 max-w-6xl mx-auto rounded-lg">
+      <div className="max-w-xl mx-auto p-3 md:p-1">
+        <h1 className="text-3xl font-bold mb-3">Upload your image</h1>
+        <form className="grid" onSubmit={handleSubmitFile}>
+          <input
+            type="text"
+            name="caption"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg mb-3 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="enter caption"
+            onChange={handleInputChange}
+            value={captionState}
+            required
+          />
+          <input
+            onChange={handleFileInputChange}
+            value={fileInputState}
+            type="file"
+            name="img"
+            className=""
+          />
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 my-4 rounded"
+          >
+            Upload
+          </button>
+        </form>
+        <div className="text-4xl text-center capitalize font-semibold">
+          <>
+            <h1>{captionState}</h1>
+            {previewSource && (
+              <img
+                src={previewSource}
+                className="mt-3 mx-auto"
+                alt={captionState}
+              />
+            )}
+          </>
+        </div>
       </div>
     </div>
   );
