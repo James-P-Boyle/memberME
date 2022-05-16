@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function UploadImage() {
   const [fileInputState, setFileInputState] = useState("");
@@ -33,20 +34,16 @@ export default function UploadImage() {
   };
 
   const uploadImage = async (base64EncodedImage) => {
-    console.log(base64EncodedImage);
     try {
-      await fetch("http://localhost:4000/posts", {
-        method: "POST",
-        body: JSON.stringify({
-          base64: base64EncodedImage,
-          caption: captionState,
-        }),
-        headers: {
-          "Content-type": "application/json",
-          authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxOTlmZmM0MGZiOTRhNDYyOGJhMSIsImVtYWlsIjoiamFtZSIsImlhdCI6MTY1MjM2NTcyNywiZXhwIjoxNjUyMzk1NzI3fQ.codhTl9QL_KF95b1WGxmM6ZnzALCmDOjRCLC-bpexYY`,
-        },
-      });
+      await axios.post(
+        "http://localhost:4000/posts",
+        { base64: base64EncodedImage, caption: captionState },
+        {
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      );
       navigate("/home");
+      //toastify success message
     } catch (error) {
       console.log(error);
     }

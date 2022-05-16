@@ -37,7 +37,7 @@ export default function SignUp() {
         password,
       });
       localStorage.setItem("token", data);
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       console.log(err.message);
     }
