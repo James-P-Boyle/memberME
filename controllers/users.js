@@ -32,7 +32,7 @@ const login = async (req, res, next) => {
 const signup = async (req, res, next) => {
   try {
     const {
-      body: { email, password },
+      body: { email, password, userName },
     } = req;
     //Check DB for existing User
     const found = await usersModel.findOne({ email });
@@ -42,7 +42,7 @@ const signup = async (req, res, next) => {
     const hash = await bcrypt.hash(password, 10);
 
     //Create New User if user doesnt exist
-    const user = await usersModel.create({ email, password: hash });
+    const user = await usersModel.create({ email, userName, password: hash });
 
     //Create JWT token
     //Sign Token
