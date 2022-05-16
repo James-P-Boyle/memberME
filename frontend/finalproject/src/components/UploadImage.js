@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function UploadImage() {
   const [fileInputState, setFileInputState] = useState("");
   const [captionState, setCaptionState] = useState("");
   const [previewSource, setPreviewSource] = useState("");
+  const navigate = useNavigate();
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -44,6 +46,7 @@ export default function UploadImage() {
           authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxOTlmZmM0MGZiOTRhNDYyOGJhMSIsImVtYWlsIjoiamFtZSIsImlhdCI6MTY1MjM2NTcyNywiZXhwIjoxNjUyMzk1NzI3fQ.codhTl9QL_KF95b1WGxmM6ZnzALCmDOjRCLC-bpexYY`,
         },
       });
+      navigate("/home");
     } catch (error) {
       console.log(error);
     }
