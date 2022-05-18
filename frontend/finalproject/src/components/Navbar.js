@@ -7,7 +7,7 @@ export default function Navbar() {
     <div>
       <nav className="bg-gray-800 fixed inset-x-0 top-0">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-around h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 {/* logo */}
@@ -42,11 +42,15 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+            <div>
+              <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-2 rounded-md font-medium cursor-pointer"></i>
+              <i className="fa fa-plus text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
+            </div>
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                className="bg-gray-900 inline-flex items-center justify-center p-1 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -128,60 +132,4 @@ export default function Navbar() {
       </nav>
     </div>
   );
-}
-
-{
-  /* <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-amber-500 mb-3">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a
-              className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-              href="#pablo"
-            >
-              amber Tailwind Starter Kit
-            </a>
-            <button
-              className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-              type="button"
-              onClick={() => setNavbarOpen(!navbarOpen)}
-            >
-              <i className="fas fa-bars"></i>
-            </button>
-          </div>
-          <div
-            className={
-              "lg:flex flex-grow items-center" +
-              (navbarOpen ? " flex" : " hidden")
-            }
-            id="example-navbar-danger"
-          >
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
-                  <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Share</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
-                  <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Tweet</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
-                  <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Pin</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav> */
 }
