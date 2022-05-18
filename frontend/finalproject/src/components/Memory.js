@@ -19,7 +19,7 @@ export default function Memory() {
   return (
     <div>
       {memory ? (
-        <div className="mx-auto border-green-500 border">
+        <div className="mx-auto border-green-500 border max-w-xl">
           <button
             className="bg-slate-400 px-3 py-4"
             onClick={() => navigate(-1)}
