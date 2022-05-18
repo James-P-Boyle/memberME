@@ -16,7 +16,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="max-w-xl mx-auto">
+    <div className="max-w-xl mx-auto mt-20">
       {imgSource && (
         <div
           onClick={() => {
