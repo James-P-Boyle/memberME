@@ -1,5 +1,3 @@
-import { useReducer } from "react";
-
 export default function Comment() {
   return (
     <form className="w-full p-5">
