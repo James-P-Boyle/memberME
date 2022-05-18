@@ -6,7 +6,9 @@ export default function List({ caption, img, date = "", id, setImgSource }) {
           <h1 className="text-xl capitalize font-bold">{caption}</h1>
           <p className="text-sm font-light">{date.split("T")[0]}</p>
         </div>
-        <button className="font-bold text-xl hover:animate-bounce hover:font-black">
+        <button className="font-bold text-xl">
+          {" "}
+          {/* ADD HOVER EFFECT */}
           ...
           {/*  <i className="fa-solid fa-ellipsis-stroke me-1"></i> */}
         </button>
