@@ -1,7 +1,7 @@
 export default function List({ caption, img, date = "", id, setImgSource }) {
   return (
-    <div className="mx-auto my-2 shadow-md border md:rounded-xl">
-      <div className="flex justify-between py-3 px-5">
+    <div className="mx-auto my-2 py-5 shadow-md border md:rounded-xl">
+      <div className="flex justify-between pb-3 px-5">
         <div className="">
           <h1 className="text-xl capitalize font-bold">{caption}</h1>
           <p className="text-sm font-light">{date.split("T")[0]}</p>
