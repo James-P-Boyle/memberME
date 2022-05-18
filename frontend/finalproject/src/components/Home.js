@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Timeline from "./TimeLine";
+import List from "./List";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -16,20 +16,20 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="max-w-xl border-8 mx-auto">
+    <div className="max-w-xl mx-auto">
       {imgSource && (
         <div
           onClick={() => {
             setImgSource("");
           }}
-          className="h-screen bg-opacity-90 min-w-full fixed bg-black left-0 top-0 flex items-center"
+          className="h-screen bg-opacity-90 min-w-full fixed bg-black left-0 top-0 flex items-center px-2"
         >
           <img src={imgSource} alt="" className="bg-cover h-xl mx-auto" />
         </div>
       )}
 
       {posts.map((post, index) => (
-        <Timeline
+        <List
           id={post._id}
           key={post._id}
           caption={post.caption}
