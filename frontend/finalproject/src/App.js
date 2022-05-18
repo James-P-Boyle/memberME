@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import Memory from "./components/Memory";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/upload" element={<UploadImage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/memory/:id" element={<Memory />} />
       </Routes>
     </div>
   );

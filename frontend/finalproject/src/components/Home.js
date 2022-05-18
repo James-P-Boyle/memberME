@@ -18,6 +18,7 @@ export default function Home() {
     <div className="max-w-xl border-8 mx-auto">
       {posts.map((post, index) => (
         <Timeline
+          id={post._id}
           key={post.index}
           caption={post.caption}
           img={post.img}
