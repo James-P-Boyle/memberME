@@ -1,4 +1,4 @@
-import commentsModel from "../models/comments";
+const commentsModel = require("../models/comments");
 
 const getComments = async (req, res, next) => {
   try {
