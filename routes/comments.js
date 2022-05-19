@@ -1,5 +1,9 @@
 const express = require("express");
+const verifyToken = require("../middlewares/verifyToken");
 const commentsRouter = express.Router();
+
+commentsRouter.use(verifyToken);
+
 const {
   getComment,
   getComments,

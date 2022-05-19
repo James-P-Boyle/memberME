@@ -23,7 +23,7 @@ export default function List({ caption, img, date = "", id, setImgSource }) {
         alt=""
         className="max-h-30 max-w-30 mx-auto cursor-pointer"
       />
-      <Comment />
+      <Comment post={id} />
     </div>
   );
 }

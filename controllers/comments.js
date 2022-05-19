@@ -2,7 +2,11 @@ const commentsModel = require("../models/comments");
 
 const getComments = async (req, res, next) => {
   try {
-    const comments = await commentsModel.find({});
+    const {
+      query: { post },
+    } = req;
+    const searchQuery = post ? { post } : {};
+    const comments = await commentsModel.find(searchQuery);
     res.json(comments);
   } catch (err) {
     res.status(500).send(err.message);
@@ -25,12 +29,12 @@ const getComment = async (req, res, next) => {
 const createComment = async (req, res, next) => {
   try {
     const {
-      body: { comment },
+      body: { comment, post },
       user: { id },
     } = req;
 
-    commentsModel.create({ comment, userId: id });
-    res.json({ msg: "YAAAY, comment was successful" });
+    const created = await commentsModel.create({ comment, post, user: id });
+    res.json(created);
   } catch (error) {
     console.log(error);
     res.status(500).json({ err: "Something went wrong" });

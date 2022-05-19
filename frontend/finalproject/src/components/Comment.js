@@ -1,6 +1,9 @@
-export default function Comment() {
+export default function Comment({ post }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
-    <form className="w-full p-5">
+    <form className="w-full p-5" onSubmit={handleSubmit}>
       <div className="flex">
         <label for="comment"></label>
         <textarea
