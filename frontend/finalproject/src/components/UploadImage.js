@@ -42,7 +42,7 @@ export default function UploadImage() {
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
-      navigate("/home");
+      navigate("/");
       //toastify success message
     } catch (error) {
       console.log(error);

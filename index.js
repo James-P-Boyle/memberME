@@ -5,6 +5,7 @@ require("./db");
 
 const postsRouter = require("./routes/posts");
 const usersRouter = require("./routes/users");
+const commentsRouter = require("./routes/comments");
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -14,6 +15,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 app.use("/posts", postsRouter);
+app.use("/comments", commentsRouter);
 app.use("/auth", usersRouter);
 
 app.listen(port, () => {
