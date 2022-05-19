@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { toast } from "react-toastify";
 import axios from "axios";
 
 export default function Comment({ post }) {
@@ -13,11 +13,25 @@ export default function Comment({ post }) {
   const postComment = async (post, comment) => {
     console.log(post, comment);
     try {
-      const { data } = await axios.post("http://localhost:4000/auth/signup", {
-        post,
-        comment,
+      const { data } = await axios.post(
+        "http://localhost:4000/comments",
+        {
+          post,
+          comment,
+        },
+        {
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      );
+      toast("Saving", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
-      //add toastify
     } catch (err) {
       console.log(err.message);
     }
@@ -25,7 +39,7 @@ export default function Comment({ post }) {
   return (
     <form className="w-full p-5" onSubmit={handleSubmit}>
       <div className="flex">
-        <label for="comment"></label>
+        <label htmlFor="comment"></label>
         <textarea
           onChange={(e) => setComment(e.target.value)}
           className="w-full h-10 p-2 border rounded-lg focus:outline-none focus:ring-gray-300 focus:ring-1"
