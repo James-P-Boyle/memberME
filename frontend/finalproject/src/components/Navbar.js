@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 
 export default function Navbar() {
@@ -10,12 +11,14 @@ export default function Navbar() {
           <div className="flex items-center justify-around h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
+                <NavLink to="/">
+                  <img
+                    className="h-8 w-8"
+                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                    alt="Workflow"
+                  />
+                </NavLink>
                 {/* logo */}
-                <img
-                  className="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                  alt="Workflow"
-                />
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
@@ -42,9 +45,21 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-            <div>
+            <div className="flex items-center">
               <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-2 rounded-md font-medium cursor-pointer"></i>
               <i className="fa fa-plus text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
+              <NavLink
+                to="/login"
+                className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to="/signup"
+                className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
+              >
+                Signup
+              </NavLink>
             </div>
             <div className="-mr-2 flex md:hidden">
               <button
