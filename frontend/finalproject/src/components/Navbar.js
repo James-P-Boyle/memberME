@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <div>
       <nav className="bg-gray-800 fixed inset-x-0 top-0">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-around h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
@@ -110,7 +110,7 @@ export default function Navbar() {
 
         <Transition
           show={isOpen}
-          enter="transition ease-out duration-100 transform"
+          enter="transition ease-out duration-500 transform"
           enterFrom="opacity-0 scale-95"
           enterTo="opacity-100 scale-100"
           leave="transition ease-in duration-75 transform"
@@ -140,6 +140,20 @@ export default function Navbar() {
                 >
                   Dashboard
                 </a>
+                <div className="flex">
+                  <a
+                    href="#"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Login
+                  </a>
+                  <a
+                    href="#"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Signup
+                  </a>
+                </div>
               </div>
             </div>
           )}
