@@ -7,16 +7,6 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleEmailChange = (e) => {
-    const val = e.target.value;
-    setEmail(val);
-  };
-
-  const handlePasswordChange = (e) => {
-    const val = e.target.value;
-    setPassword(val);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     logIn(email, password);
@@ -51,7 +41,7 @@ export default function Login() {
                 id="email"
                 placeholder="Email"
                 autoComplete="on"
-                onChange={handleEmailChange}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
             </div>
@@ -63,7 +53,7 @@ export default function Login() {
                 name="password"
                 id="password"
                 autoComplete="on"
-                onChange={handlePasswordChange}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
