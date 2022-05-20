@@ -3,15 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function UploadImage() {
-  const [fileInputState, setFileInputState] = useState("");
   const [captionState, setCaptionState] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const navigate = useNavigate();
-
-  const handleFileInputChange = (e) => {
-    const file = e.target.files[0];
-    previewFile(file);
-  };
 
   const previewFile = (file) => {
     const reader = new FileReader();
@@ -45,45 +39,57 @@ export default function UploadImage() {
   };
 
   return (
-    <div className="border-8 max-w-6xl mx-auto rounded-lg mt-20">
-      <div className="max-w-xl mx-auto p-3 md:p-1">
-        <h1 className="text-3xl font-bold mb-3">Upload your image</h1>
-        <form className="grid" onSubmit={handleSubmitFile}>
+    <div className="border shadow-md max-w-2xl mx-auto rounded-lg mt-20 pb-2">
+      <form className="grid grid-cols-12 p-2">
+        <button
+          type="submit"
+          className="rounded-full col-span-1 mt-1 bg-slate-400"
+        >
+          PIC
+        </button>
+        <input
+          type="text"
+          name="caption"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-lg col-span-10 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-4 my-3 mx-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="enter caption"
+          onChange={(e) => setCaptionState(e.target.value)}
+          value={captionState}
+          required
+        />
+
+        <div className="rounded-full col-span-1 mt-1 text-center bg-slate-400">
           <input
-            type="text"
-            name="caption"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg mb-3 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="enter caption"
-            onChange={(e) => setCaptionState(e.target.value)}
-            value={captionState}
-            required
-          />
-          <input
-            onChange={handleFileInputChange}
-            value={fileInputState}
+            onChange={(e) => previewFile(e.target.files[0])}
+            id="files"
             type="file"
             name="img"
-            className=""
+            className="hidden"
           />
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 my-4 rounded"
-          >
-            Upload
-          </button>
-        </form>
-        <div className="text-4xl text-center capitalize font-semibold">
-          <>
-            <h1>{captionState}</h1>
-            {previewSource && (
+          <label htmlFor="files" className="text-6xl">
+            +
+          </label>
+        </div>
+      </form>
+      <div className="text-4xl text-center capitalize font-semibold border-1 mx-auto max-w-fit px-5 rounded-2xl shadow-xl hover:shadow-2xl">
+        <>
+          <h1>{captionState}</h1>
+          {previewSource && (
+            <>
               <img
                 src={previewSource}
-                className="mt-3 mx-auto"
+                className="mx-auto max-h-80 p-5 "
                 alt={captionState}
               />
-            )}
-          </>
-        </div>
+              <button
+                type="submit"
+                onClick={handleSubmitFile}
+                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 col-span-1 border-b-4 border-blue-700 hover:border-blue-500 my-4 rounded"
+              >
+                Upload
+              </button>
+            </>
+          )}
+        </>
       </div>
     </div>
   );

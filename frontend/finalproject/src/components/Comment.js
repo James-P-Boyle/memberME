@@ -32,6 +32,7 @@ export default function Comment({ post }) {
         draggable: true,
         progress: undefined,
       });
+      console.log(data);
     } catch (err) {
       console.log(err.message);
     }
