@@ -8,21 +8,6 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleEmailChange = (e) => {
-    const val = e.target.value;
-    setEmail(val);
-  };
-
-  const handleNameChange = (e) => {
-    const val = e.target.value;
-    setUserName(val);
-  };
-
-  const handlePasswordChange = (e) => {
-    const val = e.target.value;
-    setPassword(val);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     postDetails(email, userName, password);
@@ -58,7 +43,7 @@ export default function SignUp() {
                 id="email"
                 placeholder="Email"
                 autoComplete="on"
-                onChange={handleEmailChange}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
             </div>
@@ -71,7 +56,7 @@ export default function SignUp() {
                 id="userName"
                 placeholder="User Name"
                 autoComplete="on"
-                onChange={handleNameChange}
+                onChange={(e) => setUserName(e.target.value)}
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
             </div>
@@ -83,7 +68,7 @@ export default function SignUp() {
                 name="password"
                 id="password"
                 autoComplete="on"
-                onChange={handlePasswordChange}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
