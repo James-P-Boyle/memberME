@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import List from "./List";
+import Memory from "./Memory";
 import UploadImage from "./UploadImage";
 
 export default function Home() {
@@ -32,7 +32,7 @@ export default function Home() {
         )}
 
         {posts.map((post, index) => (
-          <List
+          <Memory
             id={post._id}
             key={post._id}
             caption={post.caption}
