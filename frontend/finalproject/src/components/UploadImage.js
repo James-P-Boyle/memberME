@@ -50,7 +50,7 @@ export default function UploadImage() {
   };
 
   return (
-    <div className="mt-3 border-8 max-w-6xl mx-auto rounded-lg">
+    <div className="border-8 max-w-6xl mx-auto rounded-lg mt-20">
       <div className="max-w-xl mx-auto p-3 md:p-1">
         <h1 className="text-3xl font-bold mb-3">Upload your image</h1>
         <form className="grid" onSubmit={handleSubmitFile}>

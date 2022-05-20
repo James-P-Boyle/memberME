@@ -47,7 +47,12 @@ export default function Navbar() {
             </div>
             <div className="flex items-center">
               <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-2 rounded-md font-medium cursor-pointer"></i>
-              <i className="fa fa-plus text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
+              <NavLink
+                to="/upload"
+                className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"
+              >
+                <i className="fa fa-plus text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
+              </NavLink>
               <NavLink
                 to="/login"
                 className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"
