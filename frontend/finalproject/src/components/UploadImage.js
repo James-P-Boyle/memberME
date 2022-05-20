@@ -10,12 +10,7 @@ export default function UploadImage() {
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
-
     previewFile(file);
-  };
-  const handleInputChange = (e) => {
-    const val = e.target.value;
-    setCaptionState(val);
   };
 
   const previewFile = (file) => {
@@ -59,7 +54,7 @@ export default function UploadImage() {
             name="caption"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-lg mb-3 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="enter caption"
-            onChange={handleInputChange}
+            onChange={() => setCaptionState(e.target.value)}
             value={captionState}
             required
           />
