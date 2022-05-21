@@ -39,8 +39,8 @@ export default function UploadImage() {
   };
 
   return (
-    <div className="border shadow-md max-w-2xl mx-auto rounded-lg mt-20 pb-2">
-      <form className="grid grid-cols-12 p-2">
+    <div className="border shadow-lg max-w-2xl mx-auto rounded-lg mt-20 pb-2">
+      <form className="grid grid-cols-12 px-2">
         <button
           type="submit"
           className="rounded-full col-span-1 mt-1 bg-slate-400"
@@ -50,7 +50,7 @@ export default function UploadImage() {
         <input
           type="text"
           name="caption"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-lg col-span-10 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-4 my-3 mx-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-lg col-span-10 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 my-2 mx-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="enter caption"
           onChange={(e) => setCaptionState(e.target.value)}
           value={captionState}

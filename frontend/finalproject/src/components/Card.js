@@ -1,8 +1,8 @@
 import Comment from "./Comment";
 
-export default function Memory({ caption, img, date = "", id, setImgSource }) {
+export default function Card({ caption, img, date = "", id, setImgSource }) {
   return (
-    <div className="mx-auto my-2 pt-5 shadow-md border md:rounded-xl w-full ">
+    <div className="mx-auto bg-green-200 my-3 pt-5 shadow-md border md:rounded-xl w-full ">
       <div className="flex justify-between pb-3 px-5">
         <div className="">
           <h1 className="text-xl capitalize font-bold">{caption}</h1>
