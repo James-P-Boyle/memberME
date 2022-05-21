@@ -20,7 +20,7 @@ export default function Memory({ caption, img, date = "", id, setImgSource }) {
         }}
         src={img}
         alt=""
-        className=" h-64 shadow-2xl hover:shadow-8xl mx-auto cursor-pointer"
+        className="bg-cover shadow-2xl hover:shadow-8xl mx-auto cursor-pointer"
       />
       {}
       <Comment post={id} />
