@@ -2,7 +2,7 @@ import Comment from "./Comment";
 
 export default function Memory({ caption, img, date = "", id, setImgSource }) {
   return (
-    <div className="mx-auto  my-2 pt-5 shadow-md border md:rounded-xl">
+    <div className="mx-auto my-2 pt-5 shadow-md border md:rounded-xl">
       <div className="flex justify-between pb-3 px-5">
         <div className="">
           <h1 className="text-xl capitalize font-bold">{caption}</h1>
@@ -20,7 +20,7 @@ export default function Memory({ caption, img, date = "", id, setImgSource }) {
         }}
         src={img}
         alt=""
-        className="bg-cover shadow-2xl hover:shadow-8xl mx-auto cursor-pointer"
+        className="shadow-2xl hover:shadow-8xl mx-auto cursor-pointer"
       />
       {}
       <Comment post={id} />
