@@ -1,46 +1,33 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Card from "./Card";
+import Comment from "./Comment";
 
-export default function Posts() {
-  const [posts, setPosts] = useState([]);
-  const [imgSource, setImgSource] = useState("");
-  console.log(posts);
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/posts", {
-        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-      })
-      .then((res) => setPosts(res.data))
-      .catch((err) => console.log(err));
-  }, []);
-
+export default function Posts({ caption, img, date = "", id, setImgSource }) {
   return (
-    <>
-      <div className="mx-auto mt-5 rounded-xl shadow-xl">
-        {imgSource && (
-          <div
-            onClick={() => {
-              setImgSource("");
-            }}
-            className="h-screen bg-opacity-90 min-w-full fixed bg-black left-0 top-0 flex items-center px-2"
-          >
-            <img src={imgSource} alt="" className="bg-cover h-xl mx-auto" />
-          </div>
-        )}
+    <div className="my-3 pt-5 shadow-md border rounded-xl ">
+      <div className="flex justify-between pb-3 px-5">
         <div className="">
-          {posts.map((post, index) => (
-            <Card
-              id={post._id}
-              key={post._id}
-              caption={post.caption}
-              img={post.img}
-              date={post.date}
-              setImgSource={setImgSource}
-            />
-          ))}
+          <h1 className="text-xl capitalize font-bold">{caption}</h1>
+          <p className="text-sm font-light">{date.split("T")[0]}</p>
         </div>
+        <button className="font-bold text-xl">
+          {/* ADD HOVER EFFECT */}
+          ...
+          {/*  <i className="fa-solid fa-ellipsis-stroke me-1"></i> */}
+        </button>
       </div>
-    </>
+      <div className="">
+        <img
+          onClick={() => {
+            setImgSource(img);
+          }}
+          src={img}
+          alt=""
+          className="p-1 bg-white object-cover h-72 w-full rounded-xl mx-auto cursor-pointer"
+        />
+      </div>
+
+      <div>
+        <Comment post={id} />
+      </div>
+    </div>
   );
 }
