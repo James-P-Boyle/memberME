@@ -36,17 +36,18 @@ export default function Home() {
                 <img src={imgSource} alt="" className="bg-cover h-xl mx-auto" />
               </div>
             )}
-
-            {posts.map((post, index) => (
-              <Memory
-                id={post._id}
-                key={post._id}
-                caption={post.caption}
-                img={post.img}
-                date={post.date}
-                setImgSource={setImgSource}
-              />
-            ))}
+            <div className="border-8 flex flex-col">
+              {posts.map((post, index) => (
+                <Memory
+                  id={post._id}
+                  key={post._id}
+                  caption={post.caption}
+                  img={post.img}
+                  date={post.date}
+                  setImgSource={setImgSource}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
