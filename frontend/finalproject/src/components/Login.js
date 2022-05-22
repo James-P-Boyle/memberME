@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -20,6 +21,8 @@ export default function Login() {
         password,
       });
       localStorage.setItem("token", data);
+      const decoded = jwt_decode(data);
+      localStorage.setItem("user", JSON.stringify(decoded));
       navigate("/");
     } catch (err) {
       console.log(err.message);

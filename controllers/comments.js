@@ -3,9 +3,10 @@ const commentsModel = require("../models/comments");
 const getComments = async (req, res, next) => {
   try {
     const {
-      query: { post },
+      query: { post, user },
     } = req;
-    const searchQuery = post ? { post } : {};
+    console.log(post, user);
+    const searchQuery = post ? { post, user } : {};
     const comments = await commentsModel.find(searchQuery);
     res.json(comments);
   } catch (err) {

@@ -7,14 +7,15 @@ import UploadImage from "./components/UploadImage";
 import Navbar from "./components/Navbar";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import Home from "./components/Home";
+import Feed from "./components/Feed";
 
 function App() {
   return (
     <div>
       <Navbar />
+
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Feed />} />
         <Route path="/upload" element={<UploadImage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
