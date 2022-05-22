@@ -56,8 +56,6 @@ export default function Comment({ post }) {
             <textarea
               onChange={(e) => setComment(e.target.value)}
               className="w-full h-10 p-2 border rounded-lg focus:outline-none focus:ring-gray-300 focus:ring-1"
-              name="comment"
-              id="comment"
               placeholder="Leave your memory ..."
             ></textarea>
             <button className="px-6 py-2 text-sm text-blue-100 bg-blue-600 rounded">
@@ -72,8 +70,6 @@ export default function Comment({ post }) {
               <textarea
                 /*   onChange={(e) => setComment(e.target.value)} */
                 className="w-full h-10 p-2 border rounded-lg focus:outline-none focus:ring-gray-300 focus:ring-1"
-                name="comment"
-                id="comment"
                 placeholder={comments[0].comment}
               ></textarea>
               <button className="px-6 py-2 text-sm text-blue-100 bg-green-200 rounded">

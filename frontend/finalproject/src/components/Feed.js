@@ -19,15 +19,15 @@ export default function Feed() {
   }, []);
 
   return (
-    <div className="md:grid md:grid-cols-8 gap-2 max-h-screen w-screen">
-      <div className="h-screen shadow-2xl hidden md:block col-span-2">
+    <div className="md:grid md:grid-cols-8 gap-2 max-h-screen w-screen relative">
+      <div className="h-screen shadow-2xl hidden md:block fixed top-20 left-0 w-60">
         <UserPanel />
       </div>
 
       <div className="col-span-4 col-start-4 m-2 md:m-5">
         <UploadImage />
 
-        <div className="grid-rows-6">
+        <div className="col-start-5">
           {posts.map((post, index) => (
             <Posts
               id={post._id}
