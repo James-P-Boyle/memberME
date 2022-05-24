@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { authenticate } from "../redux/reducers/auth";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +26,7 @@ export default function Login() {
       });
       localStorage.setItem("token", data);
       const decoded = jwt_decode(data);
-      localStorage.setItem("user", JSON.stringify(decoded));
+      dispatch(authenticate({ token: data, user: decoded }));
       navigate("/");
     } catch (err) {
       console.log(err.message);

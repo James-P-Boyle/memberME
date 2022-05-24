@@ -1,8 +1,8 @@
 export default function UserPanel() {
   return (
     //MAKE CUSTOM CSS CLASSES
-    <div className=" w-full flex flex-col justify-between">
-      <div className=" m-1">
+    <div className=" w-full flex flex-col justify-between bg-yellow-400">
+      <div className="">
         <div className=" text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer">
           <h1>UserName</h1>
         </div>
