@@ -3,7 +3,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 //COMPONENTS
-import UploadImage from "./components/UploadImage";
 import Navbar from "./components/Navbar";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
@@ -16,7 +15,6 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Feed />} />
-        <Route path="/upload" element={<UploadImage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         {/*         <Route path="/memory/:id" element={<Memory />} /> */}
