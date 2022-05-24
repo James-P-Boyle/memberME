@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPosts } from "../redux/reducers/posts";
 import axios from "axios";
 import Posts from "./Posts";
 import UploadImage from "./UploadImage";
 
 export default function Feed() {
-  const [posts, setPosts] = useState([]);
   const [imgSource, setImgSource] = useState("");
-  console.log(posts);
-
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts.posts);
   useEffect(() => {
     axios
       .get("http://localhost:4000/posts", {
         headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
       })
-      .then((res) => setPosts(res.data))
+      .then((res) => dispatch(setPosts(res.data)))
       .catch((err) => console.log(err));
   }, []);
 
