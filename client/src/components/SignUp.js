@@ -19,7 +19,7 @@ export default function SignUp() {
 
   const postDetails = async (email, userName, password) => {
     try {
-      const { data } = await axios.post("http://localhost:4000/auth/signup", {
+      const { data } = await axios.post("http://localhost:4000/users/signup", {
         email,
         userName,
         password,
