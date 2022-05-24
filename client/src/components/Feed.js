@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Posts from "./Posts";
-import UserPanel from "./UserPanel";
 import UploadImage from "./UploadImage";
 
 export default function Feed() {
@@ -20,6 +19,7 @@ export default function Feed() {
 
   return (
     <div className="col-start-5">
+      <UploadImage />
       {posts.map((post, index) => (
         <Posts
           id={post._id}

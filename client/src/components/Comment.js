@@ -14,7 +14,7 @@ export default function Comment({ post }) {
       })
       .then((res) => setComments(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [post, user.id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +22,6 @@ export default function Comment({ post }) {
   };
 
   const postComment = async (post, comment) => {
-    console.log(post, comment);
     try {
       const { data } = await axios.post(
         "http://localhost:4000/comments",
@@ -34,6 +33,7 @@ export default function Comment({ post }) {
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
+      setComments([data]);
       toast("Saving", {
         position: "top-right",
         autoClose: 2000,
@@ -43,7 +43,6 @@ export default function Comment({ post }) {
         draggable: true,
         progress: undefined,
       });
-      console.log(data);
     } catch (err) {
       console.log(err.message);
     }
