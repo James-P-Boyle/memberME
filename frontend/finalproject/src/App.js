@@ -7,17 +7,20 @@ import Navbar from "./components/Navbar";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Feed from "./components/Feed";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <div>
       <Navbar />
-
       <Routes>
-        <Route path="/" element={<Feed />} />
+        {/* //everything is inside in the 2 col layout*/}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Feed />} />
+        </Route>
+
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        {/*         <Route path="/memory/:id" element={<Memory />} /> */}
       </Routes>
       <ToastContainer
         position="top-right"

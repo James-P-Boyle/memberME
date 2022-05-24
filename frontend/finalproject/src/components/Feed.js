@@ -19,38 +19,28 @@ export default function Feed() {
   }, []);
 
   return (
-    <div className="md:grid md:grid-cols-8 gap-2 max-h-screen w-screen relative">
-      <div className="h-screen shadow-2xl hidden md:block fixed top-20 left-0 w-60">
-        <UserPanel />
-      </div>
-
-      <div className="col-span-4 col-start-4 m-2 md:m-5">
-        <UploadImage />
-
-        <div className="col-start-5">
-          {posts.map((post, index) => (
-            <Posts
-              id={post._id}
-              key={post._id}
-              caption={post.caption}
-              img={post.img}
-              date={post.date}
-              setImgSource={setImgSource}
-            />
-          ))}
-          <div className="mx-auto mt-5 rounded-xl shadow-xl">
-            {imgSource && (
-              <div
-                onClick={() => {
-                  setImgSource("");
-                }}
-                className="h-screen bg-opacity-90 min-w-full fixed bg-black left-0 top-0 flex items-center px-2"
-              >
-                <img src={imgSource} alt="" className="bg-cover h-xl mx-auto" />
-              </div>
-            )}
+    <div className="col-start-5">
+      {posts.map((post, index) => (
+        <Posts
+          id={post._id}
+          key={post._id}
+          caption={post.caption}
+          img={post.img}
+          date={post.date}
+          setImgSource={setImgSource}
+        />
+      ))}
+      <div className="mx-auto mt-5 rounded-xl shadow-xl">
+        {imgSource && (
+          <div
+            onClick={() => {
+              setImgSource("");
+            }}
+            className="h-screen bg-opacity-90 min-w-full fixed bg-black left-0 top-0 flex items-center px-2"
+          >
+            <img src={imgSource} alt="" className="bg-cover h-xl mx-auto" />
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
