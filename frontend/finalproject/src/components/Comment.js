@@ -65,12 +65,12 @@ export default function Comment({ post }) {
         </form>
       ) : (
         <div>
-          <form className="w-full p-5" /* onSubmit={handleSubmit} */>
+          <form className="w-full p-5" onSubmit={handleSubmit}>
             <div className="flex gap-4">
               <textarea
-                /*   onChange={(e) => setComment(e.target.value)} */
+                onChange={(e) => setComment(e.target.value)}
                 className="w-full h-10 p-2 border rounded-lg focus:outline-none focus:ring-gray-300 focus:ring-1"
-                placeholder={comments[0].comment}
+                value={comments[0].comment}
               ></textarea>
               <button className="px-6 py-2 text-sm text-blue-100 bg-green-200 rounded">
                 Edit
