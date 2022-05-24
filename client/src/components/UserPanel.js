@@ -2,9 +2,9 @@ import UserCard from "./UserCard";
 export default function UserPanel() {
   return (
     //MAKE CUSTOM CSS CLASSES
-    <div className="flex flex-col justify-between bg-yellow-400">
+    <div className="flex flex-col justify-between">
       <div className="">
-        <div className=" text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer">
+        <div className="">
           <UserCard />
         </div>
         <div className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer">

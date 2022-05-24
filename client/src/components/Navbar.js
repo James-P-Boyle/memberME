@@ -125,7 +125,7 @@ export default function Navbar() {
         >
           {(ref) => (
             <div
-              className="md:hidden min-h-screen flex justify-center bg-yellow-200"
+              className="md:hidden min-h-screen flex justify-center"
               id="mobile-menu"
             >
               <div
