@@ -21,7 +21,7 @@ export default function Posts({ caption, img, date = "", id, setImgSource }) {
           }}
           src={img}
           alt=""
-          className="p-1 bg-white object-cover h-72 w-full rounded-xl mx-auto cursor-pointer"
+          className="p-1 bg-white object-cover h-60 w-full rounded-xl mx-auto cursor-pointer"
         />
       </div>
 

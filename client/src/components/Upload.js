@@ -50,7 +50,7 @@ export default function Upload() {
   };
 
   return (
-    <div className="shadow-lg rounded-lg mt-20">
+    <div className="shadow-lg rounded-lg">
       <form className="px-2 flex items-center gap-1">
         <input
           type="text"

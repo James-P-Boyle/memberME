@@ -17,14 +17,6 @@ export default function Feed() {
       .then((res) => dispatch(setPosts(res.data)))
       .catch((err) => console.log(err));
   }, []);
-  /*   useEffect(() => {
-    axios
-      .get(`http://localhost:4000/comments?post=${post}&user=${user.id}`, {
-        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-      })
-      .then((res) => setComments(res.data))
-      .catch((err) => console.log(err));
-  }, [post, user.id]); */
 
   return (
     <div className="col-start-5 mt-16">
@@ -44,9 +36,9 @@ export default function Feed() {
             onClick={() => {
               setImgSource("");
             }}
-            className="h-screen bg-opacity-90 min-w-full fixed bg-black left-0 top-0 flex items-center px-2"
+            className="h-full overflow-hidden bg-opacity-90 min-w-full fixed bg-black left-0 top-0 flex items-center p-2 z-20"
           >
-            <img src={imgSource} alt="" className="bg-cover h-xl mx-auto" />
+            <img src={imgSource} alt="" className=" max-h-xl mx-auto" />
           </div>
         )}
       </div>
