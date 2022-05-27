@@ -12,7 +12,7 @@ export default function UserCard() {
           <hr />
           <div className="flex h-10 items-center justify-start">
             <a href="/">
-              <i class="fa fa-gear text-gray-300 hover:text-black font-medium cursor-pointer"></i>
+              <i className="fa fa-gear text-gray-300 hover:text-black font-medium cursor-pointer"></i>
               <i className="fa fa-bell text-gray-300 hover:text-black font-medium cursor-pointer"></i>
             </a>
           </div>
