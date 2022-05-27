@@ -10,7 +10,7 @@ export default function Layout() {
     <div>
       {isAuthenticated ? (
         <div className="md:grid md:grid-cols-8 gap-2 max-h-screen w-screen relative">
-          <div className="h-screen shadow-2xl hidden md:block fixed top-16 left-0 right-2/3">
+          <div className="h-screen shadow-2xl hidden md:block fixed top-16 left-0 w-72">
             <UserPanel />
           </div>
 

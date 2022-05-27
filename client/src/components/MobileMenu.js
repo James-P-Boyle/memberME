@@ -6,7 +6,6 @@ import UserCard from "../components/UserCard";
 import { Transition } from "@headlessui/react";
 
 export default function MobileMenu({ isOpen }) {
-  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
@@ -36,12 +35,6 @@ export default function MobileMenu({ isOpen }) {
             >
               <div className="">
                 <UserCard />
-              </div>
-
-              <div className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer">
-                <h1 onClick={() => setOpen(!open)}>Upload</h1>
-
-                {open && <Upload setOpen={setOpen} open={open} />}
               </div>
 
               <div className="flex">
