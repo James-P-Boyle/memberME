@@ -62,7 +62,25 @@ const signup = async (req, res, next) => {
   }
 };
 
+const addFollower = async (req, res, next) => {
+  try {
+    const {
+      body: { email },
+      user: { id },
+    } = req;
+
+    const user = await usersModel.findOne({ email });
+
+    user.following.push(id);
+    await user.save();
+    res.json({ message: "Success" });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 module.exports = {
   login,
   signup,
+  addFollower,
 };
