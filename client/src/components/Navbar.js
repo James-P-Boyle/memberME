@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import UserCard from "../components/UserCard";
+import Upload from "./Upload";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -135,7 +136,9 @@ export default function Navbar() {
                 <div className="">
                   <UserCard />
                 </div>
-
+                <div className="">
+                  <Upload />
+                </div>
                 <div className="flex">
                   <a
                     href="/login"

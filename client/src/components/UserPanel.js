@@ -11,9 +11,6 @@ export default function UserPanel() {
         <Upload />
 
         <div className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer">
-          <h1>MyTimelines</h1>
-        </div>
-        <div className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer">
           <h1>Following</h1>
         </div>
       </div>
