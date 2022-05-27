@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Upload() {
   const [captionState, setCaptionState] = useState("");
@@ -32,6 +33,16 @@ export default function Upload() {
         }
       );
       navigate("/");
+      toast("Saving", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setCaptionState("");
       //toastify success message
     } catch (error) {
       console.log(error);
