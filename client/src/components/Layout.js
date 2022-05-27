@@ -1,11 +1,11 @@
 import UserPanel from "./UserPanel";
-import { Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import SignUp from "../components/SignUp";
 
 export default function Layout() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
+
   return (
     <div>
       {isAuthenticated ? (
@@ -19,7 +19,7 @@ export default function Layout() {
           </div>
         </div>
       ) : (
-        <SignUp />
+        <Navigate to="/login" />
       )}
     </div>
   );

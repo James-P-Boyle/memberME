@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "../redux/reducers/posts";
+import Upload from "./Upload";
 import axios from "axios";
 import Posts from "./Posts";
 
 export default function Feed() {
   const [imgSource, setImgSource] = useState("");
+  const [open, setOpen] = useState(true);
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.posts);
   const user = useSelector((state) => state.auth.user);
@@ -20,6 +22,11 @@ export default function Feed() {
 
   return (
     <div className="col-start-5 mt-16">
+      <div className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer">
+        <h1 onClick={() => setOpen(!open)}>Upload</h1>
+
+        {open && <Upload setOpen={setOpen} open={open} />}
+      </div>
       {posts.map((post, index) => (
         <Posts
           id={post._id}

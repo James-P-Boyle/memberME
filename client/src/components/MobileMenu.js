@@ -1,10 +1,19 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import Upload from "../components/Upload";
 import UserCard from "../components/UserCard";
 import { Transition } from "@headlessui/react";
 
 export default function MobileMenu({ isOpen }) {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    dispatch(logout());
+  };
   return (
     <div>
       <Transition
@@ -29,28 +38,40 @@ export default function MobileMenu({ isOpen }) {
                 <UserCard />
               </div>
 
-              <div
-                onClick={() => setOpen(!open)}
-                className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer"
-              >
-                <h1>Upload</h1>
+              <div className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer">
+                <h1 onClick={() => setOpen(!open)}>Upload</h1>
 
                 {open && <Upload setOpen={setOpen} open={open} />}
               </div>
 
               <div className="flex">
-                <a
-                  href="/login"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base"
-                >
-                  Login
-                </a>
-                <a
-                  href="/signup"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base"
-                >
-                  Signup
-                </a>
+                {!isAuthenticated ? (
+                  <>
+                    <a
+                      href="/login"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base"
+                    >
+                      Login
+                    </a>
+                    <a
+                      href="/signup"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base"
+                    >
+                      Signup
+                    </a>
+                  </>
+                ) : (
+                  //Log the user out when clicked and navigate to login page
+                  <>
+                    <NavLink
+                      to="/"
+                      onClick={logout}
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base"
+                    >
+                      Logout
+                    </NavLink>
+                  </>
+                )}
               </div>
             </div>
           </div>

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
 
 export default function Comment({ post }) {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = useSelector((state) => state.auth.user);
 
   useEffect(() => {
     axios
