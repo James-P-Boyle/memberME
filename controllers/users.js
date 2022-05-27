@@ -34,12 +34,14 @@ const signup = async (req, res, next) => {
     const {
       body: { email, password, userName },
     } = req;
+
     //Check DB for existing User
     const found = await usersModel.findOne({ email });
     if (found) throw new Error("User Already Exists");
 
     //Hash Password - is a promise so dont need cb from documentation
     const hash = await bcrypt.hash(password, 10);
+    console.log(hash);
 
     //Create New User if user doesnt exist
     const user = await usersModel.create({ email, userName, password: hash });

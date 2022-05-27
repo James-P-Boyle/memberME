@@ -5,7 +5,6 @@ const getComments = async (req, res, next) => {
     const {
       query: { post, user },
     } = req;
-    console.log(post, user);
     const searchQuery = post ? { post, user } : {};
     const comments = await commentsModel.find(searchQuery);
     res.json(comments);

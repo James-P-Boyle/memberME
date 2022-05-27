@@ -39,13 +39,10 @@ export default function UploadImage() {
   };
 
   return (
-    <div className="border shadow-lg max-w-2xl mx-auto rounded-lg mt-20 pb-2">
+    <div className="shadow-lg mx-auto rounded-lg mt-20">
       <form className="grid grid-cols-12 px-2">
-        <button
-          type="submit"
-          className="rounded-full col-span-1 mt-1 bg-slate-400"
-        >
-          PIC
+        <button type="submit" className="">
+          PIC.
         </button>
         <input
           type="text"
@@ -57,7 +54,7 @@ export default function UploadImage() {
           required
         />
 
-        <div className="rounded-full col-span-1 mt-1 text-center bg-slate-400">
+        <div className="">
           <input
             onChange={(e) => previewFile(e.target.files[0])}
             id="files"

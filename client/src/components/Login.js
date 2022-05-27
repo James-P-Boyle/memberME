@@ -1,27 +1,32 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
-export default function SignUp() {
+import { authenticate } from "../redux/reducers/auth";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import { useDispatch } from "react-redux";
+
+export default function Login() {
   const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postDetails(email, userName, password);
+    logIn(email, password);
   };
 
-  const postDetails = async (email, userName, password) => {
-    console.log(email, userName, password);
+  const logIn = async (email, password) => {
+    console.log(email, password);
     try {
-      const { data } = await axios.post("http://localhost:4000/auth/signup", {
+      const { data } = await axios.post("http://localhost:4000/users/login", {
         email,
-        userName,
         password,
       });
       localStorage.setItem("token", data);
+      const decoded = jwt_decode(data);
+      dispatch(authenticate({ token: data, user: decoded }));
       navigate("/");
     } catch (err) {
       console.log(err.message);
@@ -31,7 +36,7 @@ export default function SignUp() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg">
-        <h3 className="text-2xl font-bold text-center">Sign Up</h3>
+        <h3 className="text-2xl font-bold text-center">Log In</h3>
         <form onSubmit={handleSubmit}>
           <div className="mt-4">
             <div>
@@ -44,19 +49,6 @@ export default function SignUp() {
                 placeholder="Email"
                 autoComplete="on"
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-              />
-            </div>
-            <div className="mt-4">
-              <label htmlFor="userName">User Name</label>
-              <input
-                required
-                type="text"
-                name="userName"
-                id="userName"
-                placeholder="User Name"
-                autoComplete="on"
-                onChange={(e) => setUserName(e.target.value)}
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
             </div>
@@ -75,13 +67,13 @@ export default function SignUp() {
             </div>
             <div className="flex items-baseline justify-between">
               <button className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">
-                Register
+                Login
               </button>
               <a
                 href="/login"
                 className="text-sm text-blue-600 hover:underline"
               >
-                Existing user?
+                Forgot Password?
               </a>
             </div>
           </div>
