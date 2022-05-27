@@ -1,12 +1,15 @@
+import Upload from "./Upload";
 import UserCard from "./UserCard";
 export default function UserPanel() {
   return (
     //MAKE CUSTOM CSS CLASSES
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col justify-between ronded-xl">
       <div className="">
         <div className="">
           <UserCard />
         </div>
+        <Upload />
+
         <div className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer">
           <h1>MyTimelines</h1>
         </div>

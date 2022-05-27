@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "../redux/reducers/posts";
 import axios from "axios";
 import Posts from "./Posts";
-import Upload from "./Upload";
 
 export default function Feed() {
   const [imgSource, setImgSource] = useState("");
@@ -28,8 +27,7 @@ export default function Feed() {
   }, [post, user.id]); */
 
   return (
-    <div className="col-start-5">
-      <Upload />
+    <div className="col-start-5 mt-16">
       {posts.map((post, index) => (
         <Posts
           id={post._id}

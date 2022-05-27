@@ -50,7 +50,7 @@ const signup = async (req, res, next) => {
     //Sign Token
     const token = jwt.sign(
       //Payload
-      { id: user._id, email },
+      { id: user._id, email, UserName: user.userName },
       //Secret
       process.env.JWT_SECRET,
       //options(how long valid)
