@@ -16,7 +16,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 app.use("/posts", postsRouter);
 app.use("/comments", commentsRouter);
-app.use("/auth", usersRouter);
+app.use("/users", usersRouter);
 
 app.listen(port, () => {
   console.log(`Port up and running on  ${port} `);
