@@ -64,7 +64,7 @@ export default function Upload() {
         <div>
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold h-10 w-10 rounded-full"
+            className="bg-gray-500 hover:bg-gray-700 text-white font-bold h-8 w-8 rounded-full"
             onClick={handleSubmitFile}
           >
             +
