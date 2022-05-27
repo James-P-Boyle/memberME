@@ -42,7 +42,7 @@ export default function UploadImage() {
     <div className="shadow-lg mx-auto rounded-lg mt-20">
       <form className="grid grid-cols-12 px-2">
         <button type="submit" className="">
-          PIC
+          PIC.
         </button>
         <input
           type="text"
