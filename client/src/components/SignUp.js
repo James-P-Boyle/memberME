@@ -26,6 +26,7 @@ export default function SignUp() {
       });
 
       localStorage.setItem("token", data);
+
       const decoded = jwt_decode(data);
       dispatch(authenticate({ token: data, user: decoded }));
 

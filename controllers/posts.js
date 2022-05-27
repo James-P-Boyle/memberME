@@ -1,11 +1,25 @@
 const postsModel = require("../models/posts");
+const usersModel = require("../models/users");
 const { cloudinary } = require("../utils/cloudinary");
+const mongoose = require("mongoose");
 
 const getPosts = async (req, res, next) => {
   try {
-    const posts = await postsModel.find({});
+    const {
+      query: { userId },
+    } = req;
+
+    const user = await usersModel.findById(userId);
+    const following = [...user.following, mongoose.Types.ObjectId(userId)];
+    /*     const posts = await postsModel.find({ userId: { $in: following } }); */
+
+    const searchQuery = userId ? { userId: { $in: following } } : {};
+
+    const posts = await postsModel.find(searchQuery);
+
     res.json(posts);
   } catch (err) {
+    console.log(err);
     res.status(500).send(err.message);
   }
 };

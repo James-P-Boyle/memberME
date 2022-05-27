@@ -9,14 +9,23 @@ export default function Feed() {
   const [imgSource, setImgSource] = useState("");
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.posts);
+  const user = useSelector((state) => state.auth.user);
   useEffect(() => {
     axios
-      .get("http://localhost:4000/posts", {
+      .get(`http://localhost:4000/posts?userId=${user.id}`, {
         headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => dispatch(setPosts(res.data)))
       .catch((err) => console.log(err));
   }, []);
+  /*   useEffect(() => {
+    axios
+      .get(`http://localhost:4000/comments?post=${post}&user=${user.id}`, {
+        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+      .then((res) => setComments(res.data))
+      .catch((err) => console.log(err));
+  }, [post, user.id]); */
 
   return (
     <div className="col-start-5">
