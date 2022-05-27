@@ -67,20 +67,20 @@ export default function UploadImage() {
           </label>
         </div>
       </form>
-      <div className="text-2xl text-center capitalize font-semibold border-1 mx-auto max-w-fit px-5 rounded-2xl flex flex-col gap-1 py-2">
+      <div className="text-4xl text-center capitalize font-semibold border-1 mx-auto max-w-fit px-5 rounded-2xl shadow-xl hover:shadow-2xl">
         <>
           <h1>{captionState}</h1>
           {previewSource && (
             <>
               <img
                 src={previewSource}
-                className="mx-auto max-h-80 rounded-xl"
+                className="mx-auto max-h-80 p-5 "
                 alt={captionState}
               />
               <button
                 type="submit"
                 onClick={handleSubmitFile}
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+                className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 col-span-1 border-b-4 border-blue-700 hover:border-blue-500 my-4 rounded"
               >
                 Upload
               </button>
