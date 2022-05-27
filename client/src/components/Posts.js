@@ -2,7 +2,7 @@ import Comment from "./Comment";
 
 export default function Posts({ caption, img, date = "", id, setImgSource }) {
   return (
-    <div className="my-3 pt-5 shadow-md border rounded-xl ">
+    <div className="my-3 pt-5 shadow-md border rounded-xl2  max-w-lg mx-auto ">
       <div className="flex justify-between pb-3 px-5">
         <div className="">
           <h1 className="text-xl capitalize font-bold">{caption}</h1>

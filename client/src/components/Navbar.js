@@ -1,10 +1,19 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/reducers/auth";
 import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    dispatch(logout());
+  };
+
   return (
     <div>
       <nav className="bg-gray-800 fixed inset-x-0 top-0 z-10">
@@ -54,18 +63,30 @@ export default function Navbar() {
               >
                 <i className="fa fa-plus text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
               </NavLink>
-              <NavLink
-                to="/login"
-                className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"
-              >
-                Login
-              </NavLink>
-              <NavLink
-                to="/signup"
-                className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
-              >
-                Signup
-              </NavLink>
+              {!isAuthenticated ? (
+                <>
+                  <NavLink
+                    to="/login"
+                    className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"
+                  >
+                    Login
+                  </NavLink>
+                  <NavLink
+                    to="/signup"
+                    className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
+                  >
+                    Signup
+                  </NavLink>
+                </>
+              ) : (
+                <NavLink
+                  to="/"
+                  onClick={logout}
+                  className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
+                >
+                  Logout
+                </NavLink>
+              )}
             </div>
             <div className="-mr-2 flex md:hidden">
               <button

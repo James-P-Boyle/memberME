@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Upload from "../components/Upload";
 import UserCard from "../components/UserCard";
 import { Transition } from "@headlessui/react";
 
 export default function MobileMenu({ isOpen }) {
+  const [open, setOpen] = useState(false);
   return (
     <div>
       <Transition
@@ -27,7 +29,14 @@ export default function MobileMenu({ isOpen }) {
                 <UserCard />
               </div>
 
-              <Upload />
+              <div
+                onClick={() => setOpen(!open)}
+                className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer"
+              >
+                <h1>Upload</h1>
+
+                {open && <Upload setOpen={setOpen} open={open} />}
+              </div>
 
               <div className="flex">
                 <a

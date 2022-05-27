@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export default function Upload() {
+export default function Upload({ setOpen, open }) {
   const [captionState, setCaptionState] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const navigate = useNavigate();
@@ -50,12 +50,12 @@ export default function Upload() {
   };
 
   return (
-    <div className="shadow-lg rounded-lg">
+    <div className="rounded-lg">
       <form className="px-2 flex items-center gap-1">
         <input
           type="text"
           name="caption"
-          className="bg-gray-50 border w-full border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 my-2 mx-auto dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border w-full border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Caption ..."
           onChange={(e) => setCaptionState(e.target.value)}
           value={captionState}
