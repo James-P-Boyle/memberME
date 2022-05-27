@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import axios from "axios";
 import { toast } from "react-toastify";
+import { addPost } from "../redux/reducers/posts";
 
 export default function Upload({ setOpen, open }) {
   const [captionState, setCaptionState] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const previewFile = (file) => {
     const reader = new FileReader();
@@ -25,14 +29,16 @@ export default function Upload({ setOpen, open }) {
 
   const uploadImage = async (base64EncodedImage) => {
     try {
-      await axios.post(
+      const { data } = await axios.post(
         "http://localhost:4000/posts",
         { base64: base64EncodedImage, caption: captionState },
         {
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
-      navigate("/");
+
+      dispatch(addPost(data));
+
       toast("Saving", {
         position: "top-right",
         autoClose: 2000,
@@ -43,7 +49,7 @@ export default function Upload({ setOpen, open }) {
         progress: undefined,
       });
       setCaptionState("");
-      //toastify success message
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +61,7 @@ export default function Upload({ setOpen, open }) {
         <input
           type="text"
           name="caption"
-          className="bg-gray-50 border w-full border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border w-full m-3 border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Caption ..."
           onChange={(e) => setCaptionState(e.target.value)}
           value={captionState}
