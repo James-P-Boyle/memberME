@@ -56,37 +56,39 @@ export default function Navbar() {
               </div>
             </div>
             <div className="flex items-center">
-              <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-2 rounded-md font-medium cursor-pointer"></i>
-              <NavLink
-                to="/upload"
-                className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"
-              >
-                <i className="fa fa-plus text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
-              </NavLink>
-              {!isAuthenticated ? (
-                <>
+              <div className="flex-shrink-0 flex items-center">
+                <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-2 rounded-md font-medium cursor-pointer"></i>
+
+                <button className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer">
+                  <i className="fa fa-plus text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
+                </button>
+              </div>
+              <div className="flex-shrink-0 flex">
+                {!isAuthenticated ? (
+                  <>
+                    <NavLink
+                      to="/login"
+                      className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"
+                    >
+                      Login
+                    </NavLink>
+                    <NavLink
+                      to="/signup"
+                      className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
+                    >
+                      Signup
+                    </NavLink>
+                  </>
+                ) : (
                   <NavLink
-                    to="/login"
-                    className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"
-                  >
-                    Login
-                  </NavLink>
-                  <NavLink
-                    to="/signup"
+                    to="/"
+                    onClick={logout}
                     className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
                   >
-                    Signup
+                    Logout
                   </NavLink>
-                </>
-              ) : (
-                <NavLink
-                  to="/"
-                  onClick={logout}
-                  className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
-                >
-                  Logout
-                </NavLink>
-              )}
+                )}
+              </div>
             </div>
             <div className="-mr-2 flex md:hidden">
               <button
