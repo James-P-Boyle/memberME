@@ -1,10 +1,9 @@
 import UserPanel from "./UserPanel";
 import { Outlet, Navigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Layout() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const dispatch = useDispatch();
 
   return (
     <div>

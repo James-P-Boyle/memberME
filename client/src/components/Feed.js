@@ -7,7 +7,7 @@ import Posts from "./Posts";
 
 export default function Feed() {
   const [imgSource, setImgSource] = useState("");
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.posts);
   const user = useSelector((state) => state.auth.user);
@@ -18,7 +18,7 @@ export default function Feed() {
       })
       .then((res) => dispatch(setPosts(res.data)))
       .catch((err) => console.log(err));
-  }, []);
+  }, [dispatch, user.id]);
 
   return (
     <div className="col-start-5 mt-16">

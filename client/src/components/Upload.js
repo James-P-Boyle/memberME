@@ -57,37 +57,19 @@ export default function Upload({ setOpen, open }) {
 
   return (
     <div className="rounded-lg">
-      <form className="px-2 flex items-center gap-1">
+      <form className="flex items-center gap-1">
         <input
           type="text"
           name="caption"
-          className="bg-gray-50 border w-full m-3 border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border w-full my-2 border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Caption ..."
           onChange={(e) => setCaptionState(e.target.value)}
           value={captionState}
           required
         />
-        <div>
-          <button
-            type="submit"
-            className="bg-gray-500 hover:bg-gray-700 text-white font-bold h-8 w-8 rounded-full"
-            onClick={handleSubmitFile}
-          >
-            +
-          </button>
-        </div>
-        <label className=" cursor-pointer" htmlFor="files">
-          <svg
-            className="w-10 h-10 text-gray-500"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clipRule="evenodd"
-            />
-          </svg>
+
+        <label className="cursor-pointer" htmlFor="files">
+          <i className="fa fa-folder text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
         </label>
         <input
           onChange={(e) => previewFile(e.target.files[0])}
@@ -96,6 +78,16 @@ export default function Upload({ setOpen, open }) {
           name="img"
           className="hidden"
         />
+
+        <div>
+          <button
+            type="submit"
+            className="hover:bg-gray-700 text-white font-bold h-8 w-8 rounded-full"
+            onClick={handleSubmitFile}
+          >
+            <i className="fa fa-plus text-gray-300 hover:bg-gray-700 hover:text-white rounded-md cursor-pointer"></i>
+          </button>
+        </div>
       </form>
     </div>
   );

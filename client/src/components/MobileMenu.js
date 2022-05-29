@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Upload from "../components/Upload";
 import UserCard from "../components/UserCard";
 import { Transition } from "@headlessui/react";
 
@@ -11,7 +9,7 @@ export default function MobileMenu({ isOpen }) {
 
   const logout = () => {
     localStorage.removeItem("token");
-    dispatch(logout());
+    dispatch({ type: "LOGOUT" });
   };
   return (
     <div>
