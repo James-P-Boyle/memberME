@@ -1,7 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function UserCard() {
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   console.log(user);
   return (
