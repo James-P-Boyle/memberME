@@ -5,9 +5,9 @@ import PostImage from "./PostImage";
 
 export default function Post({ caption, img, date = "", id, setImgSource }) {
   const [clicked, setClicked] = useState(false);
-  console.log(clicked);
+
   return (
-    <div className="my-3 py-3 px-2 shadow-md border rounded-xl max-w-lg mx-auto">
+    <div className="my-3 py-3 shadow-md border lg:rounded-xl max-w-lg mx-auto">
       <div className="flex justify-between">
         <div>
           <h1 className="text-xl capitalize font-bold pb-1">{caption}</h1>
@@ -23,7 +23,7 @@ export default function Post({ caption, img, date = "", id, setImgSource }) {
           {/*  <i className="fa-solid fa-ellipsis-stroke me-1"></i> */}
         </button>
       </div>
-      <div className="relative p-1">
+      <div className="relative">
         {!clicked ? (
           <>
             <PostImage img={img} setImgSource={setImgSource} />

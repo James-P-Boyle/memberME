@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <div>
       <nav className="bg-gray-800 fixed inset-x-0 top-0 lg:text-xl z-10 lg:px-16">
-        <div className="flex items-center justify-between px-16 xl:px-20 h-16">
+        <div className="flex items-center justify-between px-4 md:px-16 xl:px-20 h-16">
           <NavLink to="/">
             <img
               className="h-8 w-8 lg:h-10 lg:w-10"
@@ -31,18 +31,17 @@ export default function Navbar() {
           {/* logo */}
 
           <div className="flex items-center">
-            <div className="flex mx-auto">
-              {clicked ? (
-                <>
-                  <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"></i>
-                  <InviteIcon />
-                </>
-              ) : (
-                <>
-                  <InviteInput></InviteInput>
-                </>
-              )}
-            </div>
+            {clicked ? (
+              <>
+                <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
+                <InviteIcon />
+              </>
+            ) : (
+              <>
+                <InviteInput></InviteInput>
+              </>
+            )}
+
             <div className="flex-shrink-0 flex">
               {!isAuthenticated ? (
                 <>
