@@ -39,13 +39,13 @@ export default function Navbar() {
                     to="/login"
                     className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"
                   >
-                    Login
+                    Login <i className="fa fa-sign-in ml-1"></i>
                   </NavLink>
                   <NavLink
                     to="/signup"
                     className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
                   >
-                    Signup
+                    Signup <i className="fa fa-user-plus ml-1"></i>
                   </NavLink>
                 </>
               ) : (
