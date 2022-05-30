@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import Feed from "./components/Feed";
+import Posts from "./components/Posts";
 import Layout from "./components/Layout";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         {/* //everything is inside in the 2 col layout*/}
         <Route path="/" element={<Layout />}>
-          <Route index element={<Feed />} />
+          <Route index element={<Posts />} />
         </Route>
 
         <Route path="/signup" element={<SignUp />} />

@@ -1,41 +1,53 @@
-import Comment from "./Comment";
-import { useState } from "react";
-import PostOptions from "./PostOptions";
-import PostImage from "./PostImage";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPosts } from "../redux/reducers/posts";
+import Upload from "./Upload";
+import axios from "axios";
+import Post from "./Post";
 
-export default function Posts({ caption, img, date = "", id, setImgSource }) {
-  const [clicked, setClicked] = useState(false);
-  console.log(clicked);
+export default function Feed() {
+  const [imgSource, setImgSource] = useState("");
+  const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts.posts);
+  const user = useSelector((state) => state.auth.user);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/posts?userId=${user.id}`, {
+        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+      .then((res) => dispatch(setPosts(res.data)))
+      .catch((err) => console.log(err));
+  }, [dispatch, user.id]);
+
   return (
-    <div className="my-3 py-3 px-2 shadow-md border rounded-xl max-w-lg mx-auto">
-      <div className="flex justify-between">
-        <div>
-          <h1 className="text-xl capitalize font-bold pb-1">{caption}</h1>
-          <p className="text-sm font-light">{date.split("T")[0]}</p>
-        </div>
-        <button
-          onClick={() => setClicked(!clicked)}
-          className="font-bold text-2xl pr-2"
-        >
-          {/* ADD HOVER EFFECT */}
-          {clicked ? "-" : "+"}
+    <div className="col-start-5 mt-16">
+      <div className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-xl font-medium cursor-pointer">
+        <h1 onClick={() => setOpen(!open)}>Upload</h1>
 
-          {/*  <i className="fa-solid fa-ellipsis-stroke me-1"></i> */}
-        </button>
+        {open && <Upload setOpen={setOpen} open={open} />}
       </div>
-      <div className="relative p-1">
-        {!clicked ? (
-          <>
-            <PostImage img={img} setImgSource={setImgSource} />
-          </>
-        ) : (
-          <>
-            <PostOptions />
-          </>
+      {posts.map((post, index) => (
+        <Post
+          id={post._id}
+          key={post._id}
+          caption={post.caption}
+          img={post.img}
+          date={post.date}
+          setImgSource={setImgSource}
+        />
+      ))}
+      <div className="mx-auto mt-5 rounded-xl shadow-xl">
+        {imgSource && (
+          <div
+            onClick={() => {
+              setImgSource("");
+            }}
+            className="h-full overflow-hidden bg-opacity-90 min-w-full fixed bg-black left-0 top-0 flex items-center p-2 z-20"
+          >
+            <img src={imgSource} alt="" className=" max-h-xl mx-auto" />
+          </div>
         )}
-      </div>
-      <div>
-        <Comment post={id} />
       </div>
     </div>
   );
