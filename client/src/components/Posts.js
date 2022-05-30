@@ -1,5 +1,6 @@
 import Comment from "./Comment";
 import { useState } from "react";
+import PostOptions from "./PostOptions";
 
 export default function Posts({ caption, img, date = "", id, setImgSource }) {
   const [clicked, setClicked] = useState(false);
@@ -35,14 +36,7 @@ export default function Posts({ caption, img, date = "", id, setImgSource }) {
           </>
         ) : (
           <>
-            <div className="h-60 w-full flex items-center justify-evenly border rounded-xl">
-              <button className="font-bold text-2xl rounded-xl text-black hover:bg-gray-700 hover:text-red-500 cursor-pointer h-full w-full transition delay-100 duration-300 ease-in-out">
-                Delete
-              </button>
-              <button className="font-bold text-2xl rounded-xl text-black hover:bg-gray-700 hover:text-white cursor-pointer h-full w-full transition delay-100 duration-300 ease-in-out">
-                Edit Memoey
-              </button>
-            </div>
+            <PostOptions />
           </>
         )}
       </div>
