@@ -1,6 +1,6 @@
 import Comment from "./Comment";
 import { useState } from "react";
-import PostOptions from "./PostOptions";
+import PostOptionsLayout from "./PostOptionLayout";
 import PostImage from "./PostImage";
 
 export default function Post({ caption, img, date = "", id, setImgSource }) {
@@ -30,7 +30,7 @@ export default function Post({ caption, img, date = "", id, setImgSource }) {
           </>
         ) : (
           <>
-            <PostOptions postId={id} />
+            <PostOptionsLayout postId={id} />
           </>
         )}
       </div>
