@@ -56,7 +56,7 @@ export default function Upload({ setOpen, open }) {
   };
 
   return (
-    <div className="rounded-lg">
+    <div className="rounded-lg delay-100">
       <form className="flex items-center gap-1">
         <input
           type="text"
