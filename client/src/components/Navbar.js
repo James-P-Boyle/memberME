@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/reducers/auth";
 import MobileMenu from "./MobileMenu";
-import { setClicked } from "../redux/reducers/invite";
+import InviteIcon from "./InviteIcon";
+import InviteInput from "./InviteInput";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,13 +30,18 @@ export default function Navbar() {
           </NavLink>
           {/* logo */}
 
-          <div className="flex items-center ">
-            <div>
-              <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"></i>
-              <i
-                onClick={() => dispatch(setClicked(!clicked))}
-                className="fa fa-user-plus ml-1 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
-              ></i>
+          <div className="flex items-center">
+            <div className="flex mx-auto">
+              {clicked ? (
+                <>
+                  <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"></i>
+                  <InviteIcon />
+                </>
+              ) : (
+                <>
+                  <InviteInput></InviteInput>
+                </>
+              )}
             </div>
             <div className="flex-shrink-0 flex">
               {!isAuthenticated ? (
