@@ -85,8 +85,8 @@ export default function SignUp() {
                   />
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <button className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">
-                    Register
+                  <button className="px-4 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">
+                    Signup <i className="fa fa-user-plus ml-1"></i>
                   </button>
                   <a
                     href="/login"

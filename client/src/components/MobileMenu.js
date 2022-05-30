@@ -42,7 +42,7 @@ export default function MobileMenu({ isOpen }) {
                       href="/login"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base"
                     >
-                      Login
+                      <i className="fa fa-sign-in ml-1"></i> Login
                     </a>
                     <a
                       href="/signup"
