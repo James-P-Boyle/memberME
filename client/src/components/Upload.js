@@ -56,7 +56,7 @@ export default function Upload({ setOpen, open }) {
   };
 
   return (
-    <div className="rounded-lg delay-100">
+    <div className="rounded-lg">
       <form className="flex items-center gap-1">
         <input
           type="text"
@@ -69,7 +69,7 @@ export default function Upload({ setOpen, open }) {
         />
 
         <label className="cursor-pointer" htmlFor="files">
-          <i className="fa fa-folder text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
+          <i className="fa fa-folder text-gray-300 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
         </label>
         <input
           onChange={(e) => previewFile(e.target.files[0])}

@@ -9,12 +9,15 @@ export default function Comment({ post }) {
   const user = useSelector((state) => state.auth.user);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:4000/comments?post=${post}&user=${user.id}`, {
-        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-      })
-      .then((res) => setComments(res.data))
-      .catch((err) => console.log(err));
+    if (post) {
+      axios
+        .get(`http://localhost:4000/comments?post=${post}&user=${user.id}`, {
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        })
+        .then((res) => setComments(res.data))
+        .catch((err) => console.log(err));
+    } else {
+    }
   }, [post, user.id]);
 
   const handleSubmit = (e) => {
