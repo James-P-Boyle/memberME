@@ -5,7 +5,7 @@ export default function PostOptions() {
         Delete
       </button>
       <button className="font-bold bg-gray-100 text-2xl rounded-xl text-black hover:bg-gray-700 hover:text-white cursor-pointer h-full w-full transition delay-100 duration-300 ease-in-out">
-        Edit Memoey
+        Edit
       </button>
     </div>
   );
