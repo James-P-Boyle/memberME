@@ -3,13 +3,15 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/reducers/auth";
 import MobileMenu from "./MobileMenu";
+import { setClicked } from "../redux/reducers/invite";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const clicked = useSelector((state) => state.invite.clicked);
 
-  const logout = () => {
+  const logUserOut = () => {
     localStorage.removeItem("token");
     dispatch(logout());
   };
@@ -30,7 +32,10 @@ export default function Navbar() {
           <div className="flex items-center ">
             <div>
               <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 mx-1 rounded-md font-medium cursor-pointer"></i>
-              <i className="fa fa-plus text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
+              <i
+                onClick={() => dispatch(setClicked(!clicked))}
+                className="fa fa-user-plus ml-1 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
+              ></i>
             </div>
             <div className="flex-shrink-0 flex">
               {!isAuthenticated ? (
@@ -45,13 +50,13 @@ export default function Navbar() {
                     to="/signup"
                     className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
                   >
-                    Signup <i className="fa fa-user-plus ml-1"></i>
+                    Signup
                   </NavLink>
                 </>
               ) : (
                 <NavLink
                   to="/"
-                  onClick={logout}
+                  onClick={logUserOut}
                   className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
                 >
                   Logout

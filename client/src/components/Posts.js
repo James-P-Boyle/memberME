@@ -5,7 +5,7 @@ import Upload from "./Upload";
 import axios from "axios";
 import Post from "./Post";
 
-export default function Feed() {
+export default function Posts() {
   const [imgSource, setImgSource] = useState("");
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
