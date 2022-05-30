@@ -1,6 +1,7 @@
 import Comment from "./Comment";
 import { useState } from "react";
 import PostOptions from "./PostOptions";
+import PostImage from "./PostImage";
 
 export default function Posts({ caption, img, date = "", id, setImgSource }) {
   const [clicked, setClicked] = useState(false);
@@ -25,14 +26,7 @@ export default function Posts({ caption, img, date = "", id, setImgSource }) {
       <div className="relative p-1">
         {!clicked ? (
           <>
-            <img
-              onClick={() => {
-                setImgSource(img);
-              }}
-              src={img}
-              alt=""
-              className="bg-white w-full h-60 object-cover rounded-xl mx-auto z-10 cursor-pointer"
-            />
+            <PostImage img={img} setImgSource={setImgSource} />
           </>
         ) : (
           <>
@@ -40,7 +34,6 @@ export default function Posts({ caption, img, date = "", id, setImgSource }) {
           </>
         )}
       </div>
-
       <div>
         <Comment post={id} />
       </div>
