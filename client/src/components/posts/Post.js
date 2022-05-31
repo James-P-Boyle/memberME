@@ -1,7 +1,7 @@
-import Comment from "./Comment";
+import Comment from "../Comment";
 import { useState } from "react";
-import PostOptionsLayout from "./PostOptionLayout";
-import PostImage from "./PostImage";
+import PostOptionsLayout from "../posts/PostOptionLayout";
+import PostImage from "../posts/PostImage";
 
 export default function Post({ caption, img, date = "", id, setImgSource }) {
   const [clicked, setClicked] = useState(false);
