@@ -2,15 +2,14 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import UserCard from "../components/UserCard";
 import { Transition } from "@headlessui/react";
+import InviteIcon from "../components/InviteIcon";
+import InviteInput from "../components/InviteInput";
+import LogOutButton from "../components/LogOutButton";
 
 export default function MobileMenu({ isOpen }) {
-  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const clicked = useSelector((state) => state.invite.clicked);
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    dispatch({ type: "LOGOUT" });
-  };
   return (
     <div>
       <Transition
@@ -29,10 +28,19 @@ export default function MobileMenu({ isOpen }) {
           >
             <div
               ref={ref}
-              className="px-2 py-4 pb-3 space-y-1 sm:px-3 flex flex-col min-w-full text-center"
+              className="px-1 py-4 pb-3 space-y-1 sm:px-3 flex flex-col min-w-full text-center"
             >
               <div className="">
                 <UserCard />
+                {clicked ? (
+                  <>
+                    <InviteIcon />
+                  </>
+                ) : (
+                  <div className="px-2">
+                    <InviteInput></InviteInput>
+                  </div>
+                )}
               </div>
 
               <div className="flex">
@@ -54,13 +62,7 @@ export default function MobileMenu({ isOpen }) {
                 ) : (
                   //Log the user out when clicked and navigate to login page
                   <>
-                    <NavLink
-                      to="/"
-                      onClick={logout}
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base"
-                    >
-                      Logout
-                    </NavLink>
+                    <LogOutButton />
                   </>
                 )}
               </div>

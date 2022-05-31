@@ -61,7 +61,7 @@ export default function Comment({ post }) {
               className="w-full h-10 p-2 border rounded-lg focus:outline-none focus:ring-gray-300 focus:ring-1"
               placeholder="Leave your memory ..."
             ></textarea>
-            <button className="px-6 py-2 text-sm text-blue-100 bg-blue-600 rounded">
+            <button className="px-6 py-2 text-sm text-white bg-gray-600 hover:bg-gray-400 rounded">
               Save
             </button>
           </div>
