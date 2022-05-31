@@ -1,14 +1,17 @@
 import { useSelector, useDispatch } from "react-redux";
+import { setProfile, clearProfile } from "../redux/reducers/profile";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import UserCard from "./UserCard";
-import UserEdit from "./UserEdit";
+import InviteIcon from "./InviteIcon";
+import InviteInput from "./InviteInput";
 
 export default function UserPanel() {
-  const [userInfo, setUserInfo] = useState({});
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
-  console.log(user);
+  const profile = useSelector((state) => state.profile.profile);
+  const clicked = useSelector((state) => state.invite.clicked);
 
   useEffect(() => {
     try {
@@ -19,7 +22,7 @@ export default function UserPanel() {
           },
         })
         .then((res) => {
-          setUserInfo(res.data);
+          dispatch(setProfile(res.data));
         });
     } catch (err) {
       console.log(err);
@@ -28,10 +31,18 @@ export default function UserPanel() {
 
   return (
     //MAKE CUSTOM CSS CLASSES
-    <div className="flex flex-col justify-between ronded-xl">
+    <div className="flex flex-col justify-between rounded-xl">
       <div className="">
-        <UserCard userInfo={userInfo} user={user} />
-        {/*   <UserEdit /> */}
+        <UserCard />
+        {clicked ? (
+          <>
+            <InviteIcon />
+          </>
+        ) : (
+          <div className="px-2">
+            <InviteInput></InviteInput>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -31,17 +31,6 @@ export default function Navbar() {
           {/* logo */}
 
           <div className="flex items-center">
-            {clicked ? (
-              <>
-                <i className="fa fa-bell text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"></i>
-                <InviteIcon />
-              </>
-            ) : (
-              <>
-                <InviteInput></InviteInput>
-              </>
-            )}
-
             <div className="flex-shrink-0 flex">
               {!isAuthenticated ? (
                 <>

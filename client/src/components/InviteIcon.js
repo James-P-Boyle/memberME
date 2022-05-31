@@ -1,9 +1,9 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setClicked } from "../redux/reducers/invite";
 
 export default function InviteIcon() {
-  const clicked = useSelector((state) => state.invite.clicked);
   const dispatch = useDispatch();
+  const clicked = useSelector((state) => state.invite.clicked);
   return (
     <div>
       <i
