@@ -7,6 +7,7 @@ const verifyToken = (req, res, next) => {
     const {
       headers: { authorization },
     } = req;
+
     //seperate string[[0] bearer " " [1] token]
     const token = authorization.split(" ")[1];
     try {

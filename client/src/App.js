@@ -21,7 +21,8 @@ function App() {
         </Route>
 
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<EditAccount />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/edit" element={<EditAccount />} />
       </Routes>
       <ToastContainer
         position="top-right"

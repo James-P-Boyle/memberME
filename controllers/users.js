@@ -1,6 +1,7 @@
 const usersModel = require("../models/users");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { cloudinary } = require("../utils/cloudinary");
 
 const login = async (req, res, next) => {
   try {
@@ -32,7 +33,7 @@ const login = async (req, res, next) => {
 const signup = async (req, res, next) => {
   try {
     const {
-      body: { email, password, userName, userImage },
+      body: { email, password, userName },
     } = req;
 
     //Check DB for existing User
@@ -48,7 +49,6 @@ const signup = async (req, res, next) => {
       email,
       userName,
       password: hash,
-      userImage,
     });
 
     //Create JWT token
@@ -66,17 +66,29 @@ const signup = async (req, res, next) => {
     res.status(500).send(err.message);
   }
 };
+/* try {
+  const {
+    params: { id },
+  } = req;
+  const { body } = req;
 
+  const updatedPost = await postsModel.findByIdAndUpdate(id, body);
+  res.json(updatedPost);
+} catch (err) {
+  res.status(500).send(err.message);
+ */
 const editUser = async (req, res, next) => {
   try {
     const {
-      body: { userName, userImage },
+      body: { profilePic },
       user: { id },
     } = req;
 
-    const user = await usersModel.findById(id);
-    user.userName = userName;
-    user.userImage = userImage;
+    const { url } = await cloudinary.uploader.upload(profilePic);
+    console.log(url);
+    const user = await usersModel.findByIdAndUpdate(id, {
+      profilePic: url,
+    });
     await user.save();
     res.json({ message: "Success" });
   } catch (err) {
@@ -104,5 +116,6 @@ const addFollower = async (req, res, next) => {
 module.exports = {
   login,
   signup,
+  editUser,
   addFollower,
 };
