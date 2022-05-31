@@ -129,5 +129,6 @@ module.exports = {
   login,
   signup,
   editUser,
+  getUser,
   addFollower,
 };
