@@ -10,7 +10,7 @@ export default function Post({ caption, img, date = "", id, setImgSource }) {
     <div className="my-3 py-3 shadow-md border lg:rounded-xl max-w-lg mx-auto">
       <div className="flex justify-between">
         <div>
-          <h1 className="text-xl capitalize font-bold pb-1">{caption}</h1>
+          <h1 className="text-xl capitalize font-bold pb-1 px-2">{caption}</h1>
           <p className="text-sm font-light">{date.split("T")[0]}</p>
         </div>
         <button

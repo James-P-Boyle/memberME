@@ -32,6 +32,10 @@ export default function InviteInput() {
     }
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(setClicked(!clicked));
+  };
   return (
     <div className="">
       <form onSubmit={handleAddUser} action="flex flex-row">
@@ -48,10 +52,7 @@ export default function InviteInput() {
           <i className="fa fa-send"></i>
         </button>
         <button className=" text-gray-300 hover:bg-gray-700 hover:text-red-400 p-2 rounded-md cursor-pointer">
-          <i
-            onClick={() => dispatch(setClicked(!clicked))}
-            className="fa fa-times"
-          ></i>
+          <i onClick={handleClick} className="fa fa-times"></i>
         </button>
       </form>
     </div>

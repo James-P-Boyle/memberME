@@ -14,6 +14,6 @@ usersRouter.post("/login", login);
 usersRouter.post("/signup", signup);
 usersRouter.post("/follow", verifyToken, addFollower);
 usersRouter.put("/edit", verifyToken, editUser);
-usersRouter.get("/user", verifyToken, getUser);
+usersRouter.get("/profile", verifyToken, getUser);
 
 module.exports = usersRouter;
