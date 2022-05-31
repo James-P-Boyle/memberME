@@ -96,6 +96,20 @@ const editUser = async (req, res, next) => {
   }
 };
 
+const getUser = async (req, res, next) => {
+  try {
+    const {
+      user: { id },
+    } = req;
+
+    const user = await usersModel.findById(id);
+
+    res.json(user);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const addFollower = async (req, res, next) => {
   try {
     const {
@@ -117,5 +131,6 @@ module.exports = {
   login,
   signup,
   editUser,
+  getUser,
   addFollower,
 };
