@@ -102,7 +102,7 @@ const getUser = async (req, res, next) => {
       user: { id },
     } = req;
 
-    const user = await usersModel.findById(id);
+    const user = await usersModel.findById(id).populate("following");
 
     res.json(user);
   } catch (err) {
