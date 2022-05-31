@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const inviteSlice = createSlice({
   name: "invite",
   initialState: {
-    clicked: false,
+    clicked: true,
   },
   reducers: {
     setClicked: (state, action) => {

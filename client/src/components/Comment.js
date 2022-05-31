@@ -54,7 +54,7 @@ export default function Comment({ post }) {
   return (
     <>
       {!comments.length ? (
-        <form className="w-full p-1" onSubmit={handleSubmit}>
+        <form className="w-full p-2" onSubmit={handleSubmit}>
           <div className="flex gap-4">
             <textarea
               onChange={(e) => setComment(e.target.value)}

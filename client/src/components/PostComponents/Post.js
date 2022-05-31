@@ -1,14 +1,14 @@
 import Comment from "../Comment";
 import { useState } from "react";
 import PostOptionsLayout from "../PostComponents/PostOptionLayout";
-import PostImage from "../PostComponents/PostImage";
+import PostedImage from "../PostComponents/PostedImage";
 
 export default function Post({ caption, img, date = "", id, setImgSource }) {
   const [clicked, setClicked] = useState(false);
 
   return (
-    <div className="my-3 pt-3 pb-1 shadow-md border lg:rounded-xl max-w-lg mx-auto">
-      <div className="flex justify-between">
+    <div className="my-3 pt-1 shadow-md border md:rounded-xl max-w-lg mx-auto hover:shadow-xl delay-100">
+      <div className="flex justify-between p-2">
         <div>
           <h1 className="text-xl capitalize font-bold pb-1 px-2">{caption}</h1>
           <p className="text-sm font-light">{date.split("T")[0]}</p>
@@ -26,7 +26,7 @@ export default function Post({ caption, img, date = "", id, setImgSource }) {
       <div className="relative">
         {!clicked ? (
           <>
-            <PostImage img={img} setImgSource={setImgSource} />
+            <PostedImage img={img} setImgSource={setImgSource} />
           </>
         ) : (
           <>
