@@ -32,7 +32,7 @@ const login = async (req, res, next) => {
 const signup = async (req, res, next) => {
   try {
     const {
-      body: { email, password, userName },
+      body: { email, password, userName, userImage },
     } = req;
 
     //Check DB for existing User
@@ -44,7 +44,12 @@ const signup = async (req, res, next) => {
     console.log(hash);
 
     //Create New User if user doesnt exist
-    const user = await usersModel.create({ email, userName, password: hash });
+    const user = await usersModel.create({
+      email,
+      userName,
+      password: hash,
+      userImage,
+    });
 
     //Create JWT token
     //Sign Token
@@ -57,6 +62,23 @@ const signup = async (req, res, next) => {
       { expiresIn: "500m" }
     );
     res.json(token);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+const editUser = async (req, res, next) => {
+  try {
+    const {
+      body: { userName, userImage },
+      user: { id },
+    } = req;
+
+    const user = await usersModel.findById(id);
+    user.userName = userName;
+    user.userImage = userImage;
+    await user.save();
+    res.json({ message: "Success" });
   } catch (err) {
     res.status(500).send(err.message);
   }

@@ -8,6 +8,7 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Posts from "./components/posts/Posts";
 import Layout from "./components/Layout";
+import EditAccount from "./components/EditAccount";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         </Route>
 
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<EditAccount />} />
       </Routes>
       <ToastContainer
         position="top-right"
