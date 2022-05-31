@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPosts } from "../redux/reducers/posts";
-import Upload from "./Upload";
+import { setPosts } from "../../redux/reducers/posts";
+import Upload from "../Upload";
 import axios from "axios";
 import Post from "./Post";
 

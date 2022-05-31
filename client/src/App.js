@@ -6,8 +6,9 @@ import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import Posts from "./components/Posts";
+import Posts from "./components/posts/Posts";
 import Layout from "./components/Layout";
+import EditAccount from "./components/EditAccount";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/edit" element={<EditAccount />} />
       </Routes>
       <ToastContainer
         position="top-right"
