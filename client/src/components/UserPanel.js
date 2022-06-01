@@ -15,7 +15,6 @@ export default function UserPanel() {
   const profile = useSelector((state) => state.profile.profile);
   const clicked = useSelector((state) => state.invite.clicked);
   const followerClicked = useSelector((state) => state.theme.clicked);
-  const toggleDark = useSelector((state) => state.theme.darkMode);
 
   useEffect(() => {
     try {
@@ -35,27 +34,31 @@ export default function UserPanel() {
 
   return (
     //MAKE CUSTOM CSS CLASSES
-    <div className="flex flex-col justify-between rounded-xl">
-      <div className={toggleDark ? "dark" : ""}>
-        <UserCard />
-        {clicked ? (
-          <>
-            <InviteIcon />
-          </>
-        ) : (
-          <div className="px-2">
-            <InviteInput></InviteInput>
-          </div>
-        )}
-        {followerClicked ? (
-          <>
-            <FollowingIcon />
-          </>
-        ) : (
-          <div className="px-2">
-            <FollowingContainer />
-          </div>
-        )}
+    <div className="flex flex-col justify-between rounded-xl w-full">
+      <UserCard />
+      <div className="">
+        <div className="hover:border">
+          {clicked ? (
+            <>
+              <InviteIcon />
+            </>
+          ) : (
+            <div className="px-2">
+              <InviteInput></InviteInput>
+            </div>
+          )}
+        </div>
+        <div className="hover:border">
+          {followerClicked ? (
+            <>
+              <FollowingIcon />
+            </>
+          ) : (
+            <div className="px-2">
+              <FollowingContainer />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

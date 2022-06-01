@@ -5,11 +5,12 @@ export default function InviteIcon() {
   const dispatch = useDispatch();
   const clicked = useSelector((state) => state.invite.clicked);
   return (
-    <div className="text-4xl">
-      <i
-        onClick={() => dispatch(setClicked(!clicked))}
-        className="fa fa-user-plus ml-1 px-3 py-2 rounded-md font-medium cursor-pointer"
-      ></i>
+    <div
+      onClick={() => dispatch(setClicked(!clicked))}
+      className="flex gap-6 items-center text-4xl hover:dark:bg-gray-800 cursor-pointer"
+    >
+      <i className="fa fa-user-plus px-3 py-3 rounded-md font-medium"></i>
+      <p className="text-xl">Invite Followers</p>
     </div>
   );
 }

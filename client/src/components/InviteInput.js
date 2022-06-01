@@ -38,9 +38,9 @@ export default function InviteInput() {
   };
   return (
     <div className="">
-      <form onSubmit={handleAddUser} className="">
+      <form onSubmit={handleAddUser} className="py-1">
         <h1>Add followers email</h1>
-        <div className="flex">
+        <div className="flex p-1">
           <input
             className="bg-gray-100 w-full pl-2 rounded text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             type="text"
