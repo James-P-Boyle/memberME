@@ -5,13 +5,14 @@ import { Transition } from "@headlessui/react";
 import InviteIcon from "../components/InviteIcon";
 import InviteInput from "../components/InviteInput";
 import LogOutButton from "../components/LogOutButton";
+import FollowingContainer from "./FollowingContainer";
 
 export default function MobileMenu({ isOpen }) {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const clicked = useSelector((state) => state.invite.clicked);
 
   return (
-    <div>
+    <div className="text-white">
       <Transition
         show={isOpen}
         enter="transition ease-out duration-500 transform"
@@ -42,6 +43,8 @@ export default function MobileMenu({ isOpen }) {
                   </div>
                 )}
               </div>
+
+              <FollowingContainer />
 
               <div className="flex">
                 {!isAuthenticated ? (

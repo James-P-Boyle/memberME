@@ -1,15 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setClicked } from "../redux/reducers/theme";
+import { FaUsers } from "react-icons/fa";
 
 export default function FollowingIcon() {
   const dispatch = useDispatch();
   const clicked = useSelector((state) => state.theme.clicked);
   return (
-    <div className="text-6xl">
-      <i
-        onClick={() => dispatch(setClicked(!clicked))}
-        className="fa fa-user-plus ml-1 px-3 py-2 rounded-md font-medium cursor-pointer"
-      ></i>
+    <div
+      onClick={() => dispatch(setClicked(!clicked))}
+      className="flex gap-4 items-center text-xl"
+    >
+      <div className="rounded-md font-medium">
+        <FaUsers />
+      </div>
+
+      <p className="text-xl">Following</p>
     </div>
   );
 }

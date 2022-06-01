@@ -58,7 +58,7 @@ export default function Comment({ post }) {
           <div className="flex gap-4 text-white">
             <textarea
               onChange={(e) => setComment(e.target.value)}
-              className="w-full h-10 p-2 border rounded-lg focus:outline-none focus:ring-gray-300 focus:ring-1"
+              className="w-full h-10 p-2 border text-gray-500 dark:text-white dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-gray-300 focus:ring-1"
               placeholder="Leave your memory ..."
             ></textarea>
             <button className="px-6 py-2 text-sm text-white bg-gray-600 hover:bg-gray-400 rounded">
@@ -69,7 +69,7 @@ export default function Comment({ post }) {
       ) : (
         <div>
           <form className="w-full p-1" onSubmit={handleSubmit}>
-            <div className="w-full h-10 p-2 border rounded-lg text-gray-500 capitalize">
+            <div className="w-full h-10 p-2 border rounded-lg dark:text-white dark:bg-gray-700 capitalize">
               {comments[0].comment}
             </div>
             {/*         <button className="px-6 py-2 text-sm text-blue-100 bg-green-200 rounded">
