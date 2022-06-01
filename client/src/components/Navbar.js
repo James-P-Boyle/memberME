@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <nav className="bg-gray-800 fixed inset-x-0 top-0 lg:text-xl z-10 lg:px-16">
+      <nav className="bg-gray-700 dark:bg-gray-800 fixed inset-x-0 top-0 lg:text-xl z-10 lg:px-16">
         <div className="flex items-center justify-between px-4 md:px-16 xl:px-20 h-16">
           <NavLink to="/">
             <img

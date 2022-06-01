@@ -49,11 +49,11 @@ export default function InviteInput() {
           />
           <button
             type="submit"
-            className=" text-gray-300 hover:bg-gray-200 hover:text-green-400 p-2 rounded-md cursor-pointer"
+            className=" text-gray-300 hover:text-green-400 p-2 rounded-md cursor-pointer"
           >
             <i className="fa fa-send"></i>
           </button>
-          <button className=" text-gray-300 hover:bg-gray-200 hover:text-red-400 p-2 rounded-md cursor-pointer">
+          <button className=" text-gray-300 hover:text-red-400 p-2 rounded-md cursor-pointer">
             <i onClick={handleClick} className="fa fa-times"></i>
           </button>
         </div>

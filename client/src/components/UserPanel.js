@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setProfile, clearProfile } from "../redux/reducers/profile";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import UserCard from "./UserCard";
 import InviteIcon from "./InviteIcon";
@@ -12,6 +12,7 @@ export default function UserPanel() {
   const token = useSelector((state) => state.auth.token);
   const profile = useSelector((state) => state.profile.profile);
   const clicked = useSelector((state) => state.invite.clicked);
+  const toggleDark = useSelector((state) => state.theme.darkMode);
 
   useEffect(() => {
     try {
@@ -32,7 +33,7 @@ export default function UserPanel() {
   return (
     //MAKE CUSTOM CSS CLASSES
     <div className="flex flex-col justify-between rounded-xl">
-      <div className="">
+      <div className={toggleDark ? "dark" : ""}>
         <UserCard />
         {clicked ? (
           <>

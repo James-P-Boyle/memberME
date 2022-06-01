@@ -25,7 +25,7 @@ export default function DeletePost({ postId }) {
   return (
     <button
       onClick={removePost}
-      className="font-bold bg-gray-100 text-2xl rounded-xl text-black hover:bg-gray-700 hover:text-red-500 cursor-pointer h-full w-full transition delay-100 duration-300 ease-in-out"
+      className="font-bold text-2xl rounded-xl hover:bg-gray-600 hover:dark:border hover:text-red-500 cursor-pointer h-full w-full transition delay-100 duration-300 ease-in-out"
     >
       Delete
     </button>
