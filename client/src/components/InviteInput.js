@@ -39,7 +39,7 @@ export default function InviteInput() {
   return (
     <div className="">
       <form onSubmit={handleAddUser} className="">
-        <h1>Add follower by email</h1>
+        <h1>Add followers email</h1>
         <div className="flex">
           <input
             className="bg-gray-100 w-full pl-2 rounded text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"

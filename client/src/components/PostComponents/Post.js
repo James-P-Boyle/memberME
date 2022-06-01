@@ -7,7 +7,7 @@ export default function Post({ caption, img, date = "", id, setImgSource }) {
   const [clicked, setClicked] = useState(false);
 
   return (
-    <div className="my-3 px-3 py-5 shadow-md border md:rounded-xl max-w-lg mx-auto hover:shadow-xl delay-100 bg-white-400 dark:bg-gray-700">
+    <div className="my-3 px-3 py-5 shadow-md md:rounded-xl border dark:border-0 max-w-lg mx-auto hover:shadow-xl bg-white-400 dark:bg-gray-800">
       <div className="flex justify-between">
         <div>
           <h1 className="text-xl capitalize font-bold">{caption}</h1>
