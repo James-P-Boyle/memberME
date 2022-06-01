@@ -3,8 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/reducers/auth";
 import MobileMenu from "./MobileMenu";
-import InviteIcon from "./InviteIcon";
-import InviteInput from "./InviteInput";
+import DarkModeIcon from "./DarkModeIcon";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +47,7 @@ export default function Navbar() {
                   </NavLink>
                 </>
               ) : (
-                <>
+                <div className="flex items-center">
                   <NavLink
                     to="/"
                     onClick={logUserOut}
@@ -56,13 +55,8 @@ export default function Navbar() {
                   >
                     Logout
                   </NavLink>
-                  <NavLink
-                    to="/edit"
-                    className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
-                  >
-                    Edit
-                  </NavLink>
-                </>
+                  <DarkModeIcon />
+                </div>
               )}
             </div>
           </div>
