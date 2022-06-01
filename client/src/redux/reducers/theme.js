@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const themeSlice = createSlice({
   name: "theme",
   initialState: {
+
     darkMode: true,
     clicked: false,
   },
@@ -12,11 +13,14 @@ export const themeSlice = createSlice({
     },
     setClicked: (state, action) => {
       state.clicked = !state.clicked;
+
     },
   },
 });
 
 // Action creators are generated for each case reducer function
+
 export const { toggleDarkMode, setClicked } = themeSlice.actions;
+
 
 export default themeSlice.reducer;

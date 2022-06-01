@@ -55,6 +55,7 @@ export default function Navbar() {
                   >
                     Logout
                   </NavLink>
+
                   <DarkModeIcon />
                 </div>
               )}
