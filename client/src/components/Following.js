@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 export default function Following() {
   const profile = useSelector((state) => state.profile.profile);
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-wrap md:gap-2 gap-6">
       {profile
         ? profile.following.map((follower, index) => {
             return (
@@ -15,7 +15,7 @@ export default function Following() {
                   <img
                     src={follower.profilePic}
                     alt=""
-                    className="h-12 w-12 rounded-full"
+                    className="h-10 w-10 rounded-full"
                   />
                 </div>
                 <span className="text-sm">{follower.userName}</span>

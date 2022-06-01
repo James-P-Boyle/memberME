@@ -36,19 +36,19 @@ export default function UserPanel() {
     //MAKE CUSTOM CSS CLASSES
     <div className="flex flex-col justify-between w-full">
       <UserCard />
-      <div className="flex flex-col gap-2">
-        <div className="">
+      <div className="flex flex-col gap-1">
+        <div className="flex p-3 hover:dark:bg-gray-800 cursor-pointer">
           {clicked ? (
             <>
               <InviteIcon />
             </>
           ) : (
-            <div className="px-2">
+            <div className="">
               <InviteInput></InviteInput>
             </div>
           )}
         </div>
-        <div className="">
+        <div className="flex p-3 hover:dark:bg-gray-800 cursor-pointer">
           {followerClicked ? (
             <>
               <FollowingIcon />

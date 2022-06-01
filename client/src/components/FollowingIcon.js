@@ -8,9 +8,9 @@ export default function FollowingIcon() {
   return (
     <div
       onClick={() => dispatch(setClicked(!clicked))}
-      className="flex gap-6 items-center text-3xl hover:dark:bg-gray-800 cursor-pointer"
+      className="flex gap-4 items-center text-xl"
     >
-      <div className="px-3 py-3 rounded-md font-medium">
+      <div className="rounded-md font-medium">
         <FaUsers />
       </div>
 

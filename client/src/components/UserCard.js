@@ -8,7 +8,7 @@ export default function UserCard() {
   console.log(profile.following);
   return (
     <div className="flex justify-between dark:bg-gray-800 pt-3 mb-2">
-      <div className="px-3 py-2 rounded-md text-xl flex flex-col items-center gap-2 mx-auto">
+      <div className="px-2 py-2 rounded-md text-xl flex flex-col items-center gap-2 mx-auto">
         <div className="">
           {profile.profilePic ? (
             <NavLink to="/edit">

@@ -13,7 +13,7 @@ export default function DarkModeIcon() {
         dispatch(toggleDarkMode());
       }}
     >
-      {darkMode ? <FaSun size={25} /> : <FaMoon size={25} />}
+      {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
     </div>
   );
 }

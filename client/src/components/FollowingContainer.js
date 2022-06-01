@@ -18,7 +18,7 @@ export default function FollowingContainer() {
         </button>
       </div>
 
-      <div className="p-2">
+      <div className="flex justify-center">
         <Following />
       </div>
     </div>
