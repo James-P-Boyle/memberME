@@ -1,10 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setProfile, clearProfile } from "../redux/reducers/profile";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import UserCard from "./UserCard";
 import InviteIcon from "./InviteIcon";
 import InviteInput from "./InviteInput";
+import FollowingIcon from "./FollowingIcon";
+import FollowingContainer from "./FollowingContainer";
 
 export default function UserPanel() {
   const dispatch = useDispatch();
@@ -12,6 +14,8 @@ export default function UserPanel() {
   const token = useSelector((state) => state.auth.token);
   const profile = useSelector((state) => state.profile.profile);
   const clicked = useSelector((state) => state.invite.clicked);
+  const followerClicked = useSelector((state) => state.theme.clicked);
+  const toggleDark = useSelector((state) => state.theme.darkMode);
 
   useEffect(() => {
     try {
@@ -32,7 +36,7 @@ export default function UserPanel() {
   return (
     //MAKE CUSTOM CSS CLASSES
     <div className="flex flex-col justify-between rounded-xl">
-      <div className="">
+      <div className={toggleDark ? "dark" : ""}>
         <UserCard />
         {clicked ? (
           <>
@@ -41,6 +45,15 @@ export default function UserPanel() {
         ) : (
           <div className="px-2">
             <InviteInput></InviteInput>
+          </div>
+        )}
+        {followerClicked ? (
+          <>
+            <FollowingIcon />
+          </>
+        ) : (
+          <div className="px-2">
+            <FollowingContainer />
           </div>
         )}
       </div>

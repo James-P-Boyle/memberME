@@ -7,15 +7,15 @@ export default function Post({ caption, img, date = "", id, setImgSource }) {
   const [clicked, setClicked] = useState(false);
 
   return (
-    <div className="my-3 pt-1 shadow-md border md:rounded-xl max-w-lg mx-auto hover:shadow-xl delay-100">
-      <div className="flex justify-between p-2">
+    <div className="my-3 px-3 py-5 shadow-md md:rounded-xl border dark:border-0 max-w-lg mx-auto hover:shadow-xl bg-white-400 dark:bg-gray-800">
+      <div className="flex justify-between">
         <div>
-          <h1 className="text-xl capitalize font-bold pb-1 px-2">{caption}</h1>
+          <h1 className="text-xl capitalize font-bold">{caption}</h1>
           <p className="text-sm font-light">{date.split("T")[0]}</p>
         </div>
         <button
           onClick={() => setClicked(!clicked)}
-          className="font-bold text-2xl pr-2"
+          className="font-bold text-2xl"
         >
           {/* ADD HOVER EFFECT */}
           {clicked ? "-" : "+"}
@@ -23,7 +23,7 @@ export default function Post({ caption, img, date = "", id, setImgSource }) {
           {/*  <i className="fa-solid fa-ellipsis-stroke me-1"></i> */}
         </button>
       </div>
-      <div className="relative">
+      <div className="relative my-4">
         {!clicked ? (
           <>
             <PostedImage img={img} setImgSource={setImgSource} />
