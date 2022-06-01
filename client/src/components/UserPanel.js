@@ -37,7 +37,7 @@ export default function UserPanel() {
     <div className="flex flex-col justify-between rounded-xl w-full">
       <UserCard />
       <div className="">
-        <div className="hover:border">
+        <div className="">
           {clicked ? (
             <>
               <InviteIcon />
@@ -48,7 +48,7 @@ export default function UserPanel() {
             </div>
           )}
         </div>
-        <div className="hover:border">
+        <div className="">
           {followerClicked ? (
             <>
               <FollowingIcon />
