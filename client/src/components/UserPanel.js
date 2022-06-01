@@ -34,9 +34,9 @@ export default function UserPanel() {
 
   return (
     //MAKE CUSTOM CSS CLASSES
-    <div className="flex flex-col justify-between rounded-xl w-full">
+    <div className="flex flex-col justify-between w-full">
       <UserCard />
-      <div className="">
+      <div className="flex flex-col gap-2">
         <div className="">
           {clicked ? (
             <>

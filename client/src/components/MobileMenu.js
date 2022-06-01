@@ -12,7 +12,7 @@ export default function MobileMenu({ isOpen }) {
   const clicked = useSelector((state) => state.invite.clicked);
 
   return (
-    <div>
+    <div className="text-white">
       <Transition
         show={isOpen}
         enter="transition ease-out duration-500 transform"

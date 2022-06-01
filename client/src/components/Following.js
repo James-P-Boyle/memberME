@@ -3,28 +3,26 @@ import { useSelector } from "react-redux";
 export default function Following() {
   const profile = useSelector((state) => state.profile.profile);
   return (
-    <>
+    <div className="flex flex-wrap gap-3">
       {profile
         ? profile.following.map((follower, index) => {
             return (
-              <div
-                key={index}
-                className="flex items-center gap-2 my-1 border rounded-lg p-2 hover:bg-gray-200 cursor-pointer transition duration-100 ease-in-out"
-              >
-                {follower.profilePic ? (
+              <div className="flex flex-col items-center">
+                <div
+                  key={index}
+                  className="rounded-full capitalize hover:animate-bounce cursor-pointer transition duration-100 ease-in-out"
+                >
                   <img
                     src={follower.profilePic}
                     alt=""
                     className="h-12 w-12 rounded-full"
                   />
-                ) : (
-                  <div className="h-12 w-12 rounded-full bg-gray-600"></div>
-                )}
-                <p>{follower.email}</p>
+                </div>
+                <span className="text-sm">{follower.userName}</span>
               </div>
             );
           })
         : null}
-    </>
+    </div>
   );
 }
