@@ -10,7 +10,7 @@ export default function InviteIcon() {
       className="flex gap-6 items-center text-xl hover:dark:bg-gray-800 cursor-pointer"
     >
       <i className="fa fa-user-plus rounded-md font-medium"></i>
-      <p className="">Add Followers</p>
+      <p className="">Invite user</p>
     </div>
   );
 }

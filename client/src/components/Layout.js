@@ -13,7 +13,7 @@ export default function Layout() {
             <UserPanel />
           </div>
 
-          <div className="col-span-4 col-start-4 md:m-5">
+          <div className="col-span-4 col-start-4 md:m-5 py-2">
             <Outlet />
           </div>
         </div>

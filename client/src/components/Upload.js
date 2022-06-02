@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { addPost } from "../redux/reducers/posts";
-import { set } from "mongoose";
 
 export default function Upload({ setOpen, open }) {
   const [captionState, setCaptionState] = useState("");
@@ -58,7 +57,7 @@ export default function Upload({ setOpen, open }) {
   };
 
   return (
-    <div className="rounded-lg">
+    <div className="md:rounded-lg mx-3">
       <form className="flex items-center gap-1">
         <input
           type="text"
