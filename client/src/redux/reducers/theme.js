@@ -5,6 +5,7 @@ export const themeSlice = createSlice({
   initialState: {
     darkMode: true,
     clicked: true,
+    editClicked: false,
   },
   reducers: {
     toggleDarkMode: (state) => {
@@ -13,11 +14,15 @@ export const themeSlice = createSlice({
     setClicked: (state, action) => {
       state.clicked = !state.clicked;
     },
+    setEditClicked: (state, action) => {
+      state.editClicked = !state.editClicked;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
 
-export const { toggleDarkMode, setClicked } = themeSlice.actions;
+export const { toggleDarkMode, setClicked, setEditClicked } =
+  themeSlice.actions;
 
 export default themeSlice.reducer;
