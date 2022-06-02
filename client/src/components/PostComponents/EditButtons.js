@@ -1,7 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setEditClicked } from "../../redux/reducers/theme";
+import AddDate from "./AddDate";
+import EditTitle from "./EditTitle";
+import EditComment from "./EditComment";
 
-export default function EditButton() {
+export default function EditButtons() {
   const dispatch = useDispatch();
   const editClicked = useSelector((state) => state.theme.editClicked);
   return (
@@ -25,15 +28,9 @@ export default function EditButton() {
               ></i>
             </button>
           </span>
-          <div className="flex items-center justify-center rounded-xl dark:bg-gray-600 dark:hover:bg-gray-700 cursor-pointer h-full w-full transition delay-100 duration-200 ease-in-out bg-gray-100 hover:bg-gray-200 hover:dark:border">
-            Add Date
-          </div>
-          <div className="flex my-1 items-center justify-center rounded-xl dark:bg-gray-600 dark:hover:bg-gray-700 cursor-pointer h-full w-full transition delay-100 duration-200 ease-in-out bg-gray-100 hover:bg-gray-200 hover:dark:border">
-            Edit Title
-          </div>
-          <div className="flex items-center justify-center rounded-xl dark:bg-gray-600 dark:hover:bg-gray-700 cursor-pointer h-full w-full transition delay-100 duration-200 ease-in-out bg-gray-100 hover:bg-gray-200 hover:dark:border">
-            Edit Comment
-          </div>
+          <AddDate />
+          <EditTitle />
+          <EditComment />
         </div>
       )}
     </>

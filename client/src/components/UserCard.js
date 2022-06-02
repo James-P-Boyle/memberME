@@ -5,7 +5,6 @@ import { FaUserAlt } from "react-icons/fa";
 export default function UserCard() {
   const profile = useSelector((state) => state.profile.profile);
 
-  console.log(profile.following);
   return (
     <div className="flex justify-between dark:bg-gray-800 pt-3 mb-2">
       <div className="px-2 py-2 rounded-md text-xl flex flex-col items-center gap-2 mx-auto">
