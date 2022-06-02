@@ -7,10 +7,6 @@ export default function Post({ caption, img, date = "", id, setImgSource }) {
   const [open, setOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
-  const showPosts = () => {
-    <></>;
-  };
-
   return (
     <div className="my-2 px-3 py-3 shadow-md sm:rounded-xl border dark:border-0 max-w-lg mx-auto bg-white-400 dark:bg-gray-800">
       <div className="flex justify-between items-center">

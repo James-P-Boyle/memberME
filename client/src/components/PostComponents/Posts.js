@@ -4,7 +4,7 @@ import { setPosts } from "../../redux/reducers/posts";
 import Upload from "../Upload";
 import axios from "axios";
 import Post from "./Post";
-import Skeleton from "react-loading-skeleton";
+import PostSkeleton from "./PostSkeleton";
 
 export default function Posts() {
   const [imgSource, setImgSource] = useState("");
@@ -27,27 +27,6 @@ export default function Posts() {
       })
       .catch((err) => console.log(err));
   }, [dispatch, user.id]);
-
-  const ShowLoading = () => {
-    return (
-      <>
-        <>
-          <div className="col-md-6">
-            <Skeleton height={400} />
-          </div>
-          <div className="col-md-6" style={{ lineHeight: 2 }}>
-            <Skeleton height={50} width={300} />
-            <Skeleton height={75} />
-            <Skeleton height={25} width={150} />
-            <Skeleton height={50} />
-            <Skeleton height={150} />
-            <Skeleton height={50} width={100} />
-            <Skeleton height={50} width={100} style={{ marginLeft: 6 }} />
-          </div>
-        </>
-      </>
-    );
-  };
 
   const ShowPosts = () => {
     return (
@@ -86,5 +65,5 @@ export default function Posts() {
     );
   };
 
-  return <>{loading ? <ShowLoading /> : <ShowPosts />}</>;
+  return <>{loading ? <PostSkeleton /> : <ShowPosts />}</>;
 }

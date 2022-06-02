@@ -7,7 +7,7 @@ export default function FollowingContainer() {
   const clicked = useSelector((state) => state.theme.clicked);
 
   return (
-    <div className="w-full px-3 py-2 border rounded-xl">
+    <div className="px-3 py-2 border rounded-xl">
       <div className="flex items-center justify-between gap-5">
         <h1 className="text-lg font-medium">Following</h1>
         <button className="text-xl text-gray-300 hover:text-red-400 p-2 rounded-md cursor-pointer">

@@ -56,7 +56,7 @@ export default function UserPanel() {
                 <FollowingIcon />
               </>
             ) : (
-              <div className="px-2">
+              <div className="px-2 w-full">
                 <FollowingContainer />
               </div>
             )}
