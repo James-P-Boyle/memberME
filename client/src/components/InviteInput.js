@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setClicked } from "../redux/reducers/invite";
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function InviteInput() {
   const [email, setEmail] = useState("");
@@ -27,6 +28,15 @@ export default function InviteInput() {
           console.log(res);
         });
       dispatch(setClicked(!clicked));
+      toast("Follower Added", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (err) {
       console.log(err);
     }
