@@ -8,7 +8,7 @@ export default function FollowingIcon() {
   return (
     <div
       onClick={() => dispatch(setClicked(!clicked))}
-      className="flex gap-4 items-center text-xl"
+      className="flex gap-6 items-center text-xl"
     >
       <div className="rounded-md font-medium">
         <FaUsers />

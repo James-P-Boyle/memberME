@@ -55,13 +55,13 @@ export default function Comment({ post }) {
     <>
       {!comments.length ? (
         <form className="w-full" onSubmit={handleSubmit}>
-          <div className="flex gap-4 text-white">
+          <div className="flex gap-2 text-white">
             <textarea
               onChange={(e) => setComment(e.target.value)}
               className="w-full h-10 p-2 border text-gray-500 dark:text-white dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-gray-300 focus:ring-1"
               placeholder="Leave your memory ..."
             ></textarea>
-            <button className="px-6 py-2 text-sm text-white bg-gray-600 hover:bg-gray-400 rounded">
+            <button className="px-6 py-2 text-sm text-white bg-gray-500 dark:bg-gray-600 hover:bg-gray-400 rounded">
               Save
             </button>
           </div>

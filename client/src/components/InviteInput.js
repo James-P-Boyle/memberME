@@ -37,9 +37,15 @@ export default function InviteInput() {
     dispatch(setClicked(!clicked));
   };
   return (
-    <div className="border p-1 rounded-xl">
+    <div className="border py-1 px-3 rounded-xl mx-2">
       <form onSubmit={handleAddUser} className="py-1">
-        <h1 className="px-1">Add follower</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-lg font-medium">Add follower</h1>
+          <button className="text-gray-300 text-xl hover:text-red-400 p-2 rounded-md cursor-pointer">
+            <i onClick={handleClick} className="fa fa-times"></i>
+          </button>
+        </div>
+
         <div className="flex p-1">
           <input
             className=" w-full pl-2 text-gray-700 leading-tight focus:outline-none focus:bg-gray-300 focus:border-purple-500 border rounded-lg"
@@ -52,9 +58,6 @@ export default function InviteInput() {
             className=" text-gray-300 hover:text-green-400 p-2 rounded-md cursor-pointer"
           >
             <i className="fa fa-send"></i>
-          </button>
-          <button className=" text-gray-300 hover:text-red-400 p-2 rounded-md cursor-pointer">
-            <i onClick={handleClick} className="fa fa-times"></i>
           </button>
         </div>
       </form>

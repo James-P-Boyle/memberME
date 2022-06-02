@@ -22,7 +22,7 @@ export default function Posts() {
 
   return (
     <div className="col-start-5 mt-16">
-      <div className="px-3 py-2 rounded-md text-lg font-medium cursor-pointer hover:border m-1">
+      <div className="px-3 py-2 rounded-xl text-lg font-medium cursor-pointer border max-w-lg mx-auto">
         <h1 onClick={() => setOpen(!open)}>Upload</h1>
 
         {open && <Upload setOpen={setOpen} open={open} />}
