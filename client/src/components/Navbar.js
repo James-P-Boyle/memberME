@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../redux/reducers/auth";
 import MobileMenu from "./MobileMenu";
 import DarkModeIcon from "./DarkModeIcon";
 
@@ -10,11 +9,6 @@ export default function Navbar() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const clicked = useSelector((state) => state.invite.clicked);
-
-  const logUserOut = () => {
-    localStorage.removeItem("token");
-    dispatch(logout());
-  };
 
   return (
     <div>
@@ -48,14 +42,6 @@ export default function Navbar() {
                 </>
               ) : (
                 <div className="flex items-center">
-                  <NavLink
-                    to="/"
-                    onClick={logUserOut}
-                    className="hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium cursor-pointer"
-                  >
-                    Logout
-                  </NavLink>
-
                   <DarkModeIcon />
                 </div>
               )}

@@ -31,22 +31,28 @@ export default function MobileMenu({ isOpen }) {
               ref={ref}
               className="px-1 py-4 pb-3 space-y-1 sm:px-3 flex flex-col min-w-full text-center"
             >
-              <div className="">
-                <UserCard />
-                {clicked ? (
-                  <>
-                    <InviteIcon />
-                  </>
-                ) : (
-                  <div className="px-2">
-                    <InviteInput></InviteInput>
+              {isAuthenticated ? (
+                <>
+                  <div className="">
+                    <UserCard />
+                    {clicked ? (
+                      <>
+                        <InviteIcon />
+                      </>
+                    ) : (
+                      <div className="px-2">
+                        <InviteInput></InviteInput>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
 
-              <FollowingContainer />
+                  <FollowingContainer />
+                </>
+              ) : (
+                "Please login or singup to see your profile"
+              )}
 
-              <div className="flex">
+              <div className="flex justify-center">
                 {!isAuthenticated ? (
                   <>
                     <NavLink

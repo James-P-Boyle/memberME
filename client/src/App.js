@@ -13,7 +13,7 @@ import EditAccount from "./components/EditAccount";
 
 function App() {
   const toggleDark = useSelector((state) => state.theme.darkMode);
-  console.log(toggleDark);
+
   return (
     <div className={toggleDark ? "dark" : ""}>
       <div className="bg-white-400 dark:bg-gray-700 text-gray-800 dark:text-white">

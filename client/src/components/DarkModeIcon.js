@@ -7,9 +7,8 @@ export default function DarkModeIcon() {
 
   return (
     <div
-      className="text-white rounded-full"
+      className="text-gray-300 hover:text-gray-100 rounded-full cursor-pointer"
       onClick={() => {
-        console.log("clicked");
         dispatch(toggleDarkMode());
       }}
     >
