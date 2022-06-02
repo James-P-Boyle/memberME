@@ -1,4 +1,4 @@
-import DeletePost from "../DeletePost";
+import DeletePost from "././DeletePost";
 import EditButtons from "./EditButtons";
 
 export default function PostOptionLayout({ postId }) {

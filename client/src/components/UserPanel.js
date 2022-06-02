@@ -34,10 +34,10 @@ export default function UserPanel() {
   }, [token]);
 
   return (
-    //MAKE CUSTOM CSS CLASSES
     <>
       <div className="flex flex-col justify-between w-full">
         <UserCard />
+
         <div className="flex flex-col gap-2 h-full">
           <div className="flex p-3 hover:bg-gray-100 hover:dark:bg-gray-800 cursor-pointer">
             {clicked ? (
@@ -62,9 +62,8 @@ export default function UserPanel() {
             )}
           </div>
         </div>
-      </div>
-      <div className="border h-full flex justify-center">
-        <div className="border h-10 flex items-center">
+
+        <div className="flex justify-center items-center">
           <LogOutButton />
         </div>
       </div>
