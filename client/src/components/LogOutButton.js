@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { logout } from "../redux/reducers/auth";
 import { useDispatch } from "react-redux";
 
 export default function LogOutButton() {

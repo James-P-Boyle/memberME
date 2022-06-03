@@ -40,10 +40,10 @@ export default function SignUp() {
   return (
     <>
       {!isAuthenticated ? (
-        <div className="flex items-center text-gray-700 justify-center min-h-screen">
+        <div className="flex items-center text-gray-700 justify-center min-h-screen ">
           <div className="px-8 py-6 mt-4 text-left shadow-lg bg-white">
             <h3 className="text-2xl font-bold text-center">Sign Up</h3>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="max-w-screen-md">
               <div className="mt-4">
                 <div>
                   <label htmlFor="email">Email</label>

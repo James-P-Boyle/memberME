@@ -1,14 +1,14 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import MobileMenu from "./MobileMenu";
 import DarkModeIcon from "./DarkModeIcon";
+import { setMobileMenuOpen } from "../redux/reducers/theme";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const dispatch = useDispatch();
+  const isOpen = useSelector((state) => state.theme.setMobileMenuOpen);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const clicked = useSelector((state) => state.invite.clicked);
+
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -49,7 +49,7 @@ export default function Navbar() {
           </div>
           <div className="-mr-2 flex md:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => dispatch(setMobileMenuOpen(!isOpen))}
               type="button"
               className="bg-gray-900 inline-flex items-center justify-center p-1 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
               aria-controls="mobile-menu"
@@ -93,7 +93,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <MobileMenu isOpen={isOpen} />
+        <MobileMenu />
       </nav>
     </div>
   );
