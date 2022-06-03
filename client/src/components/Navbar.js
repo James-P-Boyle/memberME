@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import MobileMenu from "./MobileMenu";
 import DarkModeIcon from "./DarkModeIcon";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const clicked = useSelector((state) => state.invite.clicked);
 
@@ -93,7 +92,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <MobileMenu isOpen={isOpen} />
+        <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </nav>
     </div>
   );

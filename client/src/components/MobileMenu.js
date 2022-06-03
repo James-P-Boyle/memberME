@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import UserCard from "../components/UserCard";
 import { Transition } from "@headlessui/react";
 import InviteIcon from "../components/InviteIcon";
 import InviteInput from "../components/InviteInput";
 import LogOutButton from "../components/LogOutButton";
 import FollowingContainer from "./FollowingContainer";
+import { setClicked } from "../redux/reducers/theme";
 
-export default function MobileMenu({ isOpen }) {
+export default function MobileMenu({ isOpen, setIsOpen }) {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const clicked = useSelector((state) => state.invite.clicked);
 
@@ -57,12 +58,14 @@ export default function MobileMenu({ isOpen }) {
                   <>
                     <NavLink
                       to="/login"
+                      onClick={() => setIsOpen(!isOpen)}
                       className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base"
                     >
                       <i className="fa fa-sign-in ml-1"></i> Login
                     </NavLink>
                     <NavLink
                       to="/signup"
+                      onClick={() => setIsOpen(!isOpen)}
                       className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base"
                     >
                       <i className="fa fa-user-plus ml-1"></i> Signup

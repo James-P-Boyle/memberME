@@ -23,6 +23,18 @@ const getPosts = async (req, res, next) => {
     res.status(500).send(err.message);
   }
 };
+const fitlerPostByUser = async (req, res, next) => {
+  try {
+    const {
+      params: { id },
+    } = req;
+    const posts = await postsModel.find({ userId: id });
+    res.json(posts);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send(err.message);
+  }
+};
 
 const getPost = async (req, res, next) => {
   try {
@@ -85,4 +97,5 @@ module.exports = {
   createPost,
   updatePost,
   deletePost,
+  fitlerPostByUser,
 };
