@@ -59,7 +59,7 @@ export default function Comment({ post }) {
             <textarea
               onChange={(e) => setComment(e.target.value)}
               className="w-full h-10 p-2 text-gray-500 dark:text-white dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-gray-300 focus:ring-1"
-              placeholder="Leave your memory ..."
+              placeholder="Leave your memoey ..."
             ></textarea>
             <button className="px-6 py-2 text-sm text-white bg-gray-600 dark:bg-gray-600 hover:bg-gray-500 dark:hover:bg-gray-500 rounded">
               Save
@@ -69,7 +69,7 @@ export default function Comment({ post }) {
       ) : (
         <div>
           <form className="w-full p-1" onSubmit={handleSubmit}>
-            <div className="w-full h-10 p-2 rounded-lg dark:text-white dark:bg-gray-700 capitalize">
+            <div className="w-full h-10 p-2 rounded-lg dark:text-white bg-gray-100 dark:bg-gray-700 capitalize">
               {comments[0].comment}
             </div>
             {/*         <button className="px-6 py-2 text-sm text-blue-100 bg-green-200 rounded">

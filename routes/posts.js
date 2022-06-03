@@ -6,7 +6,7 @@ const {
   createPost,
   updatePost,
   deletePost,
-  fitlerPostByUser,
+  fitlerPostByUsers,
 } = require("../controllers/posts");
 
 const postsRouter = express.Router();
@@ -17,6 +17,6 @@ postsRouter.route("/").get(getPosts).post(createPost);
 postsRouter.route("/:id").get(getPost).put(updatePost).delete(deletePost);
 
 //get followers posts
-postsRouter.route("/following/:id").get(fitlerPostByUser);
+postsRouter.route("/following").get(fitlerPostByUsers);
 
 module.exports = postsRouter;

@@ -12,9 +12,7 @@ const getPosts = async (req, res, next) => {
     const user = await usersModel.findById(userId);
     const following = [...user.following, mongoose.Types.ObjectId(userId)];
     /*     const posts = await postsModel.find({ userId: { $in: following } }); */
-
     const searchQuery = userId ? { userId: { $in: following } } : {};
-
     const posts = await postsModel.find(searchQuery);
 
     res.json(posts);
@@ -23,12 +21,11 @@ const getPosts = async (req, res, next) => {
     res.status(500).send(err.message);
   }
 };
-const fitlerPostByUser = async (req, res, next) => {
+const fitlerPostByUsers = async (req, res, next) => {
   try {
-    const {
-      params: { id },
-    } = req;
-    const posts = await postsModel.find({ userId: id });
+    const { body } = req;
+    console.log(body);
+    const posts = await postsModel.find({ userId: { $in: body } });
     res.json(posts);
   } catch (err) {
     console.log(err);
@@ -97,5 +94,5 @@ module.exports = {
   createPost,
   updatePost,
   deletePost,
-  fitlerPostByUser,
+  fitlerPostByUsers,
 };

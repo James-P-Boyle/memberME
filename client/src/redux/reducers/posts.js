@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const postsSlice = createSlice({
   name: "posts",
@@ -27,10 +28,16 @@ export const postsSlice = createSlice({
           (followerId) => followerId !== action.payload
         );
       }
+      axios
+        .post("http://localhost:4000/posts/following", state.followers, {
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        })
+        .then((res) => {
+          state.posts = res.data;
+        });
     },
   },
 });
-
 // Action creators are generated for each case reducer function
 export const { setPosts, addPost, deletePost, toggleFollower } =
   postsSlice.actions;
