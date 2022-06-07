@@ -7,7 +7,7 @@ export default function Following() {
     <div className="flex flex-wrap md:gap-2 gap-6">
       {profile
         ? profile.following.map((follower, index) => {
-            return <FollowerAvatar follower={follower} />;
+            return <FollowerAvatar key={index} follower={follower} />;
           })
         : null}
     </div>
