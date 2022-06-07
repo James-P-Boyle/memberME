@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { updatePost } from "../../redux/reducers/posts";
 
 export default function AddDate({ postId }) {
   const [dateClicked, setDateClicked] = useState(false);
   const [date, setDate] = useState("");
-
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     editDate(date);
@@ -23,7 +25,10 @@ export default function AddDate({ postId }) {
             },
           }
         )
-        .then((res) => console.log(res))
+        .then((res) => {
+          dispatch(updatePost(res.data));
+          console.log(res);
+        })
         .catch((err) => console.log(err));
       setDateClicked(!dateClicked);
       toast("Date Added", {

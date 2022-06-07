@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleFollower } from "../redux/reducers/posts";
+import { setFollowers, setPosts } from "../redux/reducers/posts";
 import { setMobileMenuOpen } from "../redux/reducers/theme";
+import axios from "axios";
 
 export default function FollowerAvatar({ follower }) {
   const [active, setActive] = useState(false);
   const openMenu = useSelector((state) => state.theme.mobileMenuOpen);
+  const followers = useSelector((state) => state.posts.followers);
   const dispatch = useDispatch();
 
   return (
@@ -16,11 +18,47 @@ export default function FollowerAvatar({ follower }) {
       >
         <img
           src={follower.profilePic}
-          alt=""
+          alt="Follower"
           onClick={() => {
             setActive(!active);
-            dispatch(toggleFollower(follower._id));
             dispatch(setMobileMenuOpen(!openMenu));
+            const foundFollower = followers.find(
+              (followerId) => followerId === follower._id
+            );
+            if (!foundFollower) {
+              axios
+                .post(
+                  "http://localhost:4000/posts/following",
+                  [...followers, follower._id],
+                  {
+                    headers: {
+                      authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                  }
+                )
+                .then((res) => {
+                  dispatch(setPosts(res.data));
+                  dispatch(setFollowers([...followers, follower._id]));
+                });
+            } else {
+              const filteredFollowers = followers.filter(
+                (followerId) => followerId !== follower._id
+              );
+              axios
+                .post(
+                  "http://localhost:4000/posts/following",
+                  filteredFollowers,
+                  {
+                    headers: {
+                      authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                  }
+                )
+                .then((res) => {
+                  dispatch(setPosts(res.data));
+                  dispatch(setFollowers(filteredFollowers));
+                });
+            }
           }}
           className={`${
             active

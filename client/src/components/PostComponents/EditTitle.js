@@ -1,10 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { updatePost } from "../../redux/reducers/posts";
 
 export default function EditTitle({ postId }) {
   const [titleClicked, setTitleClicked] = useState(false);
   const [caption, setCaption] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +26,10 @@ export default function EditTitle({ postId }) {
             },
           }
         )
-        .then((res) => console.log(res))
+        .then((res) => {
+          dispatch(updatePost(res.data));
+          console.log(res);
+        })
         .catch((err) => console.log(err));
       setTitleClicked(!titleClicked);
       toast("Updated successfully", {

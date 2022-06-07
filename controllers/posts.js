@@ -68,7 +68,10 @@ const updatePost = async (req, res, next) => {
     } = req;
     const { body } = req;
 
-    const updatedPost = await postsModel.findByIdAndUpdate(id, body);
+    const updatedPost = await postsModel.findByIdAndUpdate(id, body, {
+      new: true,
+    });
+    console.log(updatedPost);
     res.json(updatedPost);
   } catch (err) {
     res.status(500).send(err.message);
