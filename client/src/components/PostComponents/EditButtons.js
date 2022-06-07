@@ -19,7 +19,7 @@ export default function EditButtons({ postId }) {
           <button className="font-bold text-2xl">Edit</button>
         </div>
       ) : (
-        <div className="flex flex-col justify-center items-center w-full h-full">
+        <div className="flex flex-col gap-1 justify-center items-center w-full h-full">
           <span>
             <button className="text-xl text-gray-300 hover:text-red-400 rounded-md cursor-pointer absolute top-0 right-0">
               <i
@@ -29,7 +29,7 @@ export default function EditButtons({ postId }) {
             </button>
           </span>
           <AddDate postId={postId} />
-          <EditTitle />
+          <EditTitle postId={postId} />
           <EditComment />
         </div>
       )}
