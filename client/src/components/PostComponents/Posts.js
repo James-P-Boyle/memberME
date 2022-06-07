@@ -30,8 +30,8 @@ export default function Posts() {
 
   const ShowPosts = () => {
     return (
-      <div className="col-start-5 mt-16">
-        <div className="py-2 sm:rounded-xl text-lg font-medium cursor-pointer border dark:border-0 dark:bg-gray-800 max-w-lg mx-auto">
+      <div className="col-start-5 mt-16 ">
+        <div className="py-2 sm:rounded-xl text-lg font-medium cursor-pointer border hover:border-gray-300 dark:border-0 dark:bg-gray-800  max-w-lg mx-auto">
           <h1 className="text-center" onClick={() => setOpen(!open)}>
             Upload
           </h1>
@@ -41,7 +41,7 @@ export default function Posts() {
         {posts.map((post, index) => (
           <Post
             id={post._id}
-            key={post._id}
+            key={`${post._id} ${index}`}
             caption={post.caption}
             img={post.img}
             date={post.date}

@@ -24,7 +24,7 @@ export default function FollowerAvatar({ follower }) {
           }}
           className={`${
             active
-              ? "duration-100 ease-in-out scale-125 border-2 border-gray-400"
+              ? "duration-100 ease-in-out scale-125 border-2 dark:border-gray-600 border-gray-400"
               : ""
           } h-10 w-10 rounded-full border dark:border-gray-700 border-gray-300`}
         />

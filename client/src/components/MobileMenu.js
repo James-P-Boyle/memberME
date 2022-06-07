@@ -31,10 +31,7 @@ export default function MobileMenu() {
             className="md:hidden min-h-screen flex justify-center"
             id="mobile-menu"
           >
-            <div
-              ref={ref}
-              className="px-1 py-4 pb-3 space-y-1 sm:px-3 flex flex-col min-w-full text-center"
-            >
+            <div className="px-1 py-4 pb-3 space-y-1 sm:px-3 flex flex-col min-w-full text-center">
               {isAuthenticated ? (
                 <>
                   <div className="">
@@ -44,13 +41,15 @@ export default function MobileMenu() {
                         <InviteIcon />
                       </>
                     ) : (
-                      <div className="px-2">
+                      <div className="px-1">
                         <InviteInput></InviteInput>
                       </div>
                     )}
                   </div>
 
-                  <FollowingContainer />
+                  <div className="px-2">
+                    <FollowingContainer />
+                  </div>
                 </>
               ) : (
                 "Please login or singup to see your profile"

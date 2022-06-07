@@ -4,7 +4,7 @@ import AddDate from "./AddDate";
 import EditTitle from "./EditTitle";
 import EditComment from "./EditComment";
 
-export default function EditButtons() {
+export default function EditButtons({ postId }) {
   const dispatch = useDispatch();
   const editClicked = useSelector((state) => state.theme.editClicked);
   return (
@@ -19,18 +19,18 @@ export default function EditButtons() {
           <button className="font-bold text-2xl">Edit</button>
         </div>
       ) : (
-        <div className="flex flex-col justify-center items-center w-full h-full">
-          <span>
-            <button className="text-xl text-gray-300 hover:text-red-400 rounded-md cursor-pointer absolute top-0 right-0">
+        <div className="flex flex-col gap-1 items-center justify-center w-full h-full">
+          {/*         <span>
+            <button className="text-xl text-gray-300 hover:text-red-400 cursor-pointer absolute right-0">
               <i
                 onClick={() => dispatch(setEditClicked())}
                 className="fa fa-times"
               ></i>
             </button>
-          </span>
-          <AddDate />
-          <EditTitle />
-          <EditComment />
+          </span> */}
+          <AddDate postId={postId} />
+          <EditTitle postId={postId} />
+          <EditComment postId={postId} />
         </div>
       )}
     </>

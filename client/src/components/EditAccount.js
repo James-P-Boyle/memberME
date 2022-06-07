@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 export default function EditAccount() {
-  const user = useSelector((state) => state.user);
-
   const [profilePic, setProfilePic] = useState("");
+  const navigate = useNavigate();
 
   const urlConvert = (file) => {
     const reader = new FileReader();
@@ -21,6 +21,7 @@ export default function EditAccount() {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateUser();
+    navigate("/");
   };
 
   //update user using axios
@@ -36,7 +37,9 @@ export default function EditAccount() {
             },
           }
         )
-        .then((res) => console.log(res))
+        .then((res) => {
+          console.log(res);
+        })
         .catch((err) => console.log(err));
     } catch (err) {
       console.error(err.response.data);
@@ -44,21 +47,27 @@ export default function EditAccount() {
   };
 
   return (
-    <div className="h-screen mt-20">
-      <h1>Edit Account</h1>
-      <div className="flex">
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="px-8 py-6 mt-4 text-left dark:bg-gray-800 bg-white text-gray-700 shadow-lg">
+        <h3 className="text-2xl font-bold text-center dark:text-white">
+          Add Your Profile Pic
+        </h3>
         <form onSubmit={handleSubmit}>
-          <div className="">
-            <label htmlFor="userImage">Profile Pic</label>
-            <input
-              type="file"
-              id="userImage"
-              name="userImage"
-              onChange={(e) => urlConvert(e.target.files[0])}
-            />
-          </div>
-          <div className="">
-            <button type="submit">Submit</button>
+          <div className="mt-4 w-full">
+            <div className="dark:border-gray-300 rounded-xl p-2">
+              <input
+                type="file"
+                id="userImage"
+                name="userImage"
+                className=""
+                onChange={(e) => urlConvert(e.target.files[0])}
+              />
+            </div>
+            <div className="flex justify-center">
+              <button className="px-4 py-2 mt-4 text-white bg-gray-600 rounded-lg hover:bg-gray-500">
+                <i className="ml-1"></i> Upload
+              </button>
+            </div>
           </div>
         </form>
       </div>

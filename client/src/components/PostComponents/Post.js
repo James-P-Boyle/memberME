@@ -14,7 +14,9 @@ export default function Post({ caption, img, date = "", id, setImgSource }) {
           <h1 className="text-xl capitalize letter tracking-wide font-bold flex flex-wrap">
             {caption}
           </h1>
-          <p className="text-sm font-light">{date.split("T")[0]}</p>
+          <p className="text-sm font-light tracking-widest">
+            {date.split("T")[0]}
+          </p>
         </div>
         <button
           onClick={() => {
@@ -23,7 +25,7 @@ export default function Post({ caption, img, date = "", id, setImgSource }) {
               setDeleteOpen(!deleteOpen);
             }
           }}
-          className="h-10 w-10 hover:bg-gray-400 text-2xl hover:text-white px-3 py-1 rounded-full cursor-pointer font-bold"
+          className="h-10 w-10 hover:bg-gray-600 text-2xl hover:text-white px-3 py-1 rounded-full cursor-pointer font-bold"
         >
           {/* ADD HOVER EFFECT */}
           {open ? "-" : "+"}
