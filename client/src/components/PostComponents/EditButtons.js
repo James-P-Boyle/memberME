@@ -30,7 +30,7 @@ export default function EditButtons({ postId }) {
           </span>
           <AddDate postId={postId} />
           <EditTitle postId={postId} />
-          <EditComment />
+          <EditComment postId={postId} />
         </div>
       )}
     </>
