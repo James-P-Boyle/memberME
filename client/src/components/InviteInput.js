@@ -58,7 +58,7 @@ export default function InviteInput() {
 
         <div className="flex p-1">
           <input
-            className=" w-full pl-2 text-gray-700 leading-tight focus:outline-none focus:bg-gray-300 focus:border-purple-500 border rounded-lg"
+            className=" w-full pl-2 dark:bg-gray-700 text-gray-600 leading-tight focus:outline-none focus:bg-gray-300 focus:border-purple-500 border rounded-lg"
             type="text"
             placeholder="Email..."
             onChange={(e) => setEmail(e.target.value)}
