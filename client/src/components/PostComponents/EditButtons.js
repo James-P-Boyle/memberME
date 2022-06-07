@@ -4,7 +4,7 @@ import AddDate from "./AddDate";
 import EditTitle from "./EditTitle";
 import EditComment from "./EditComment";
 
-export default function EditButtons() {
+export default function EditButtons({ postId }) {
   const dispatch = useDispatch();
   const editClicked = useSelector((state) => state.theme.editClicked);
   return (
@@ -28,7 +28,7 @@ export default function EditButtons() {
               ></i>
             </button>
           </span>
-          <AddDate />
+          <AddDate postId={postId} />
           <EditTitle />
           <EditComment />
         </div>

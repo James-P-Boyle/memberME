@@ -7,7 +7,7 @@ export default function UserCard() {
 
   return (
     <div className="flex justify-between dark:bg-gray-800 pt-3 mb-2">
-      <div className="px-2 py-2 rounded-md text-xl flex flex-col items-center gap-2 mx-auto">
+      <div className="px-2 py-2 rounded-md text-xl flex flex-col items-center mx-auto">
         <div className="">
           {profile.profilePic ? (
             <NavLink to="/edit">
@@ -26,8 +26,7 @@ export default function UserCard() {
           )}
         </div>
         <div className="text-lg p-1 w-full text-center">
-          <p className="">{profile.userName}</p>
-          <p>Email: {profile.email}</p>
+          <p className="capitalize">{profile.userName}</p>
         </div>
       </div>
     </div>

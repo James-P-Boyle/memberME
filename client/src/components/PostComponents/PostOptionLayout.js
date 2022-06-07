@@ -13,7 +13,7 @@ export default function PostOptionLayout({
         deleteOpen={deleteOpen}
         setDeleteOpen={setDeleteOpen}
       />
-      <EditButtons />
+      <EditButtons postId={postId} />
     </div>
   );
 }
