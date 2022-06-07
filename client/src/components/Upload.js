@@ -70,7 +70,7 @@ export default function Upload({ setOpen, open }) {
         />
 
         <label className="cursor-pointer" htmlFor="files">
-          <i className="fa fa-folder hover:bg-gray-400 hover:text-white text-gray-500 px-3 py-3 rounded-full font-medium cursor-pointer"></i>
+          <i className="fa fa-folder dark:hover:bg-gray-600 hover:bg-gray-300 hover:text-white text-gray-500 px-3 py-3 rounded-full font-medium cursor-pointer"></i>
         </label>
         <input
           onChange={(e) => previewFile(e.target.files[0])}
@@ -84,10 +84,10 @@ export default function Upload({ setOpen, open }) {
           <div>
             <button
               type="submit"
-              className="hover:bg-gray-400 hover:text-white px-3 py-1 rounded-full font-medium cursor-pointer"
+              className="dark:hover:bg-gray-600 hover:bg-gray-300 hover:text-white text-gray-500 px-3 py-1 rounded-full font-medium cursor-pointer"
               onClick={handleSubmitFile}
             >
-              <i className="fa fa-plus text-gray-300 hover:bg-gray-400 hover:text-white rounded-md cursor-pointer"></i>
+              <i className="fa fa-plus text-gray-400 hover:text-white rounded-md cursor-pointer"></i>
             </button>
           </div>
         )}

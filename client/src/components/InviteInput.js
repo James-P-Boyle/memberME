@@ -47,7 +47,7 @@ export default function InviteInput() {
     dispatch(setClicked(!clicked));
   };
   return (
-    <div className="border py-1 px-3 rounded-xl mx-2">
+    <div className="border dark:border-gray-600 py-1 px-3 rounded-xl mx-2">
       <form onSubmit={handleAddUser} className="py-1">
         <div className="flex items-center justify-between">
           <h1 className="text-lg font-medium">Add follower</h1>
@@ -58,7 +58,7 @@ export default function InviteInput() {
 
         <div className="flex p-1">
           <input
-            className=" w-full pl-2 dark:bg-gray-700 text-gray-600 leading-tight focus:outline-none focus:bg-gray-300 focus:border-purple-500 border rounded-lg"
+            className=" w-full pl-2 dark:border-gray-600 dark:bg-gray-700 text-gray-600 leading-tight focus:outline-none dark:focus:bg-gray-200 border rounded-lg"
             type="text"
             placeholder="Email..."
             onChange={(e) => setEmail(e.target.value)}

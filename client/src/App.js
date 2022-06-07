@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className={toggleDark ? "dark" : ""}>
-      <div className="bg-white-400 dark:bg-gray-700 text-gray-800 dark:text-white">
+      <div className="App bg-white-400 dark:bg-gray-700 text-gray-800 dark:text-white">
         <Navbar />
         <Routes>
           {/* //everything is inside in the 2 col layout*/}

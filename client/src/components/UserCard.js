@@ -6,7 +6,7 @@ export default function UserCard() {
   const profile = useSelector((state) => state.profile.profile);
 
   return (
-    <div className="flex justify-between dark:bg-gray-800 pt-3 mb-2">
+    <div className="flex justify-between dark:bg-gray-800 pt-3">
       <div className="px-2 py-2 rounded-md text-xl flex flex-col items-center mx-auto">
         <div className="">
           {profile.profilePic ? (
