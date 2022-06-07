@@ -44,21 +44,25 @@ export default function EditAccount() {
   };
 
   return (
-    <div className="h-screen mt-20">
-      <h1>Edit Account</h1>
-      <div className="flex">
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="px-8 py-6 mt-4 text-left bg-white text-gray-700 shadow-lg">
+        <h3 className="text-2xl font-bold text-center">Add Your Profile Pic</h3>
         <form onSubmit={handleSubmit}>
-          <div className="">
-            <label htmlFor="userImage">Profile Pic</label>
-            <input
-              type="file"
-              id="userImage"
-              name="userImage"
-              onChange={(e) => urlConvert(e.target.files[0])}
-            />
-          </div>
-          <div className="">
-            <button type="submit">Submit</button>
+          <div className="mt-4">
+            <div className="border rounded-xl">
+              <input
+                type="file"
+                id="userImage"
+                name="userImage"
+                className=""
+                onChange={(e) => urlConvert(e.target.files[0])}
+              />
+            </div>
+            <div className="flex justify-center">
+              <button className="px-4 py-2 mt-4 text-white bg-gray-600 rounded-lg hover:bg-gray-500">
+                <i className="fa fa-sign-in ml-1"></i> Submit
+              </button>
+            </div>
           </div>
         </form>
       </div>
