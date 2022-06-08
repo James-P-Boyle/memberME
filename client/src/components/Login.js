@@ -19,10 +19,13 @@ export default function Login() {
 
   const logIn = async (email, password) => {
     try {
-      const { data } = await axios.post("http://localhost:4000/users/login", {
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/users/login`,
+        {
+          email,
+          password,
+        }
+      );
       localStorage.setItem("token", data);
       const decoded = jwt_decode(data);
       dispatch(authenticate({ token: data, user: decoded }));

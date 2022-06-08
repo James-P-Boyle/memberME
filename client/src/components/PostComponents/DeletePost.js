@@ -8,7 +8,7 @@ export default function DeletePost({ postId, deleteOpen, setDeleteOpen }) {
 
   const removePost = () => {
     axios
-      .delete(`http://localhost:4000/posts/${postId}`, {
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/posts/${postId}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
         },

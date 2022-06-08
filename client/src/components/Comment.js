@@ -11,9 +11,14 @@ export default function Comment({ post }) {
   useEffect(() => {
     if (post) {
       axios
-        .get(`http://localhost:4000/comments?post=${post}&user=${user.id}`, {
-          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-        })
+        .get(
+          `${process.env.REACT_APP_BACKEND_URL}/comments?post=${post}&user=${user.id}`,
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        )
         .then((res) => setComments(res.data))
         .catch((err) => console.log(err));
     } else {
@@ -28,7 +33,7 @@ export default function Comment({ post }) {
   const postComment = async (post, comment) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/comments",
+        `${process.env.REACT_APP_BACKEND_URL}/comments`,
         {
           post,
           comment,

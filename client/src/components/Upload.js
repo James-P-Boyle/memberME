@@ -31,7 +31,7 @@ export default function Upload({ setOpen, open }) {
   const uploadImage = async (base64EncodedImage) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/posts",
+        `${process.env.REACT_APP_BACKEND_URL}/posts`,
         { base64: base64EncodedImage, caption: captionState },
         {
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
