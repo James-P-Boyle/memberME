@@ -11,7 +11,7 @@ export default function FollowingContainer() {
     <div className="px-3 py-2 border dark:border-gray-600 rounded-xl">
       <div className="flex items-center justify-between gap-5">
         <h1 className="text-lg font-medium">
-          {!profile.Following ? "Make some friends" : "Following"}
+          {profile.Following ? "Make some friends" : "Following"}
         </h1>
         <button className="text-xl text-gray-300 hover:text-red-400 p-2 rounded-md cursor-pointer">
           <i
