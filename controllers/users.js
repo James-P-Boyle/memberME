@@ -118,7 +118,9 @@ const addFollower = async (req, res, next) => {
     } = req;
 
     const user = await usersModel.findOne({ email });
+    if (!user) throw new Error("User Not Found");
 
+    if (user.following.includes(id)) throw new Error("Already Following");
     user.following.push(id);
     await user.save();
     res.json({ message: "Success" });

@@ -7,6 +7,7 @@ import axios from "axios";
 export default function FollowerAvatar({ follower }) {
   const [active, setActive] = useState(false);
   const openMenu = useSelector((state) => state.theme.mobileMenuOpen);
+  const user = useSelector((state) => state.auth.user);
   const followers = useSelector((state) => state.posts.followers);
   const dispatch = useDispatch();
 
@@ -44,20 +45,40 @@ export default function FollowerAvatar({ follower }) {
               const filteredFollowers = followers.filter(
                 (followerId) => followerId !== follower._id
               );
-              axios
-                .post(
-                  `${process.env.REACT_APP_BACKEND_URL}/posts/following`,
-                  filteredFollowers,
-                  {
-                    headers: {
-                      authorization: `Bearer ${localStorage.getItem("token")}`,
-                    },
-                  }
-                )
-                .then((res) => {
-                  dispatch(setPosts(res.data));
-                  dispatch(setFollowers(filteredFollowers));
-                });
+              if (filteredFollowers.length) {
+                axios
+                  .post(
+                    `${process.env.REACT_APP_BACKEND_URL}/posts/following`,
+                    filteredFollowers,
+                    {
+                      headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                          "token"
+                        )}`,
+                      },
+                    }
+                  )
+                  .then((res) => {
+                    dispatch(setPosts(res.data));
+                    dispatch(setFollowers(filteredFollowers));
+                  });
+              } else {
+                axios
+                  .get(
+                    `${process.env.REACT_APP_BACKEND_URL}/posts?userId=${user.id}`,
+                    {
+                      headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                          "token"
+                        )}`,
+                      },
+                    }
+                  )
+                  .then((res) => {
+                    dispatch(setPosts(res.data));
+                  })
+                  .catch((err) => console.log(err));
+              }
             }
           }}
           className={`${

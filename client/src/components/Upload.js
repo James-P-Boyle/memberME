@@ -37,7 +37,7 @@ export default function Upload({ setOpen, open }) {
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
-
+      console.log(data);
       dispatch(addPost(data));
 
       toast("Saving", {

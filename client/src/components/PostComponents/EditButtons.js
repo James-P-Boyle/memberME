@@ -20,14 +20,14 @@ export default function EditButtons({ postId }) {
         </div>
       ) : (
         <div className="flex flex-col gap-1 text-sm items-center justify-center w-full h-full">
-          {/*         <span>
+          <span>
             <button className="text-xl text-gray-300 hover:text-red-400 cursor-pointer absolute right-0">
               <i
                 onClick={() => dispatch(setEditClicked())}
                 className="fa fa-times"
               ></i>
             </button>
-          </span> */}
+          </span>
           <AddDate postId={postId} />
           <EditTitle postId={postId} />
           <EditComment postId={postId} />

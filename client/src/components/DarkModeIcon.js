@@ -9,6 +9,7 @@ export default function DarkModeIcon() {
     <div
       className="text-gray-300 hover:text-gray-100 opacity-60 hover:opacity-30 rounded-full cursor-pointer"
       onClick={() => {
+        localStorage.setItem("darkMode", !darkMode);
         dispatch(toggleDarkMode());
       }}
     >
