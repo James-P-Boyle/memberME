@@ -97,7 +97,13 @@ export default function FollowerAvatar({ follower }) {
           />
         )}
       </div>
-      <span className="text-sm">{follower.userName}</span>
+      <span
+        className={`${
+          active ? "underline" : ""
+        } text-sm capitalize font-medium`}
+      >
+        {follower.userName}
+      </span>
     </div>
   );
 }
