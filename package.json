@@ -22,5 +22,8 @@
     "mongoose": "^6.3.3",
     "nodemon": "^2.0.16",
     "react-redux": "^8.0.2"
+  },
+  "engines": {
+    "node": "16.13.1"
   }
 }
