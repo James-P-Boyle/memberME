@@ -20,11 +20,14 @@ export default function SignUp() {
 
   const postDetails = async (email, userName, password) => {
     try {
-      const { data } = await axios.post("http://localhost:4000/users/signup", {
-        email,
-        userName,
-        password,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/users/signup`,
+        {
+          email,
+          userName,
+          password,
+        }
+      );
 
       localStorage.setItem("token", data);
 

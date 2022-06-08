@@ -20,7 +20,7 @@ export default function UserPanel() {
   useEffect(() => {
     try {
       axios
-        .get(`http://localhost:4000/users/profile`, {
+        .get(`${process.env.REACT_APP_BACKEND_URL}/users/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

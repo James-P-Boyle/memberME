@@ -28,7 +28,7 @@ export default function FollowerAvatar({ follower }) {
             if (!foundFollower) {
               axios
                 .post(
-                  "http://localhost:4000/posts/following",
+                  `${process.env.REACT_APP_BACKEND_URL}/posts/following`,
                   [...followers, follower._id],
                   {
                     headers: {
@@ -46,7 +46,7 @@ export default function FollowerAvatar({ follower }) {
               );
               axios
                 .post(
-                  "http://localhost:4000/posts/following",
+                  `${process.env.REACT_APP_BACKEND_URL}/posts/following`,
                   filteredFollowers,
                   {
                     headers: {

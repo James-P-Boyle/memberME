@@ -18,7 +18,7 @@ export default function Posts() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:4000/posts?userId=${user.id}`, {
+      .get(`${process.env.REACT_APP_BACKEND_URL}/posts?userId=${user.id}`, {
         headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => {
@@ -31,7 +31,7 @@ export default function Posts() {
   const ShowPosts = () => {
     return (
       <div className="col-start-5 mt-16 ">
-        <div className="py-2 sm:rounded-xl text-lg font-medium cursor-pointer border hover:border-gray-300 dark:border-0 dark:bg-gray-800  max-w-lg mx-auto">
+        <div className="py-2 sm:rounded-xl text-lg font-medium cursor-pointer border hover:border-gray-300 dark:border-0 dark:bg-gray-800 max-w-lg mx-auto">
           <h1 className="text-center" onClick={() => setOpen(!open)}>
             Upload
           </h1>

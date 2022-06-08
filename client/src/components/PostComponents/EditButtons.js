@@ -19,7 +19,7 @@ export default function EditButtons({ postId }) {
           <button className="font-bold text-2xl">Edit</button>
         </div>
       ) : (
-        <div className="flex flex-col gap-1 items-center justify-center w-full h-full">
+        <div className="flex flex-col gap-1 text-sm items-center justify-center w-full h-full">
           {/*         <span>
             <button className="text-xl text-gray-300 hover:text-red-400 cursor-pointer absolute right-0">
               <i
