@@ -33,7 +33,7 @@ export default function Posts() {
       <div className="col-start-5 mt-16 ">
         <div className="py-2 sm:rounded-xl text-lg font-medium cursor-pointer border hover:border-gray-300 dark:border-0 dark:bg-gray-800 max-w-lg mx-auto">
           <h1 className="text-center" onClick={() => setOpen(!open)}>
-            UploadS
+            Uploads
           </h1>
 
           {open && <Upload setOpen={setOpen} open={open} />}
