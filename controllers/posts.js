@@ -53,8 +53,8 @@ const createPost = async (req, res, next) => {
       user: { id },
     } = req;
     const { url } = await cloudinary.uploader.upload(base64);
-    postsModel.create({ caption, img: url, userId: id });
-    res.json({ msg: "YAAAY, upload successful" });
+    const post = await postsModel.create({ caption, img: url, userId: id });
+    res.json(post);
   } catch (error) {
     console.log(error);
     res.status(500).json({ err: "Something went wrong" });

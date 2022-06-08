@@ -47,7 +47,7 @@ export default function Login() {
                   <label htmlFor="email">Email</label>
                   <input
                     required
-                    type="text"
+                    type="email"
                     name="email"
                     id="email"
                     placeholder="Email"
